@@ -42,6 +42,7 @@ fi
 
 mkdir -p Documents
 mkdir -p .local/share/applications
+mkdir -p .config/terminator
 
 echo 'export PATH=~/.local/bin:${PATH}' >> .bashrc
 . .bashrc

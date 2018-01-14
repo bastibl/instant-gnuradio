@@ -109,6 +109,11 @@
             "destination": "Pictures/wallpaper.png"
         },
         {
+            "type": "file",
+            "source": "assets/terminator",
+            "destination": ".config/terminator/config"
+        },
+        {
             "type": "shell",
             "scripts": [
                 "scripts/setup.sh",

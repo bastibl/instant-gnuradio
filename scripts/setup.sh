@@ -42,8 +42,7 @@ pybombs install gqrx
 ### WALLPAPER
 gsettings set org.gnome.desktop.background picture-uri "file:///home/gnuradio/Pictures/wallpaper.png"
 
-
 ### FAVORIT APPLICATIONS
 
 
-### gnome keyboard
+### SKIP INITIAL SETUP?
