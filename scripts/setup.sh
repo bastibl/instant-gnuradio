@@ -3,12 +3,13 @@
 set -e
 set -x
 
+export LANG=en_US.UTF-8
 export PATH="$HOME/.local/bin:${PATH}"
 
 sudo apt -y install ubuntu-gnome-desktop
 sudo apt -y install git git-gui gitk tig cmake libboost-all-dev curl wget htop terminator xterm python-apt clang tmux screen qemu xvfb silversearcher-ag
 
-
+### PYBOMBS
 sudo apt -y install python-pip
 sudo pip install --upgrade pip
 
@@ -50,23 +51,30 @@ mkdir -p src
 git clone https://github.com/robbyrussell/oh-my-zsh.git src/oh-my-zsh
 sudo chsh -s /bin/zsh gnuradio
 
-### Fonts
+### FONTS
 fc-cache -fr
 
-### Spacemacs
+### SPACEMACS
 sudo apt -y install emacs25
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-emacs -nw --batch -l ~/.emacs.d/init.el
+emacs --batch \
+  --eval "(setq gc-cons-threshold 100000000)" \
+  --eval "(defconst spacemacs-version         \"0.200.10\" \"Spacemacs version.\")" \
+  --eval "(defconst spacemacs-emacs-min-version   \"24.4\" \"Minimal version of Emacs.\")" \
+  --eval "(load-file \"/home/gnuradio/.emacs.d/core/core-load-paths.el\")" \
+  --eval "(require 'core-spacemacs)" \
+  --eval "(spacemacs/init)" \
+  --eval "(configuration-layer/sync)"
 
 ### VIM
 sudo apt -y install vim vim-gnome
 mkdir -p .vim/bundle
 mkdir -p .swp
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PlugInstall +qall
+vim +VundleInstall +qall
 
 ### WALLPAPER
-gsettings set org.gnome.desktop.background picture-uri "file:///home/gnuradio/Pictures/wallpaper.png"
+xvfb-run dconf write /org/gnome/desktop/background/picture-uri \"file:///home/gnuradio/Pictures/wallpaper.png\"
 
 ### FAVORIT APPLICATIONS
 xvfb-run dconf write /org/gnome/shell/favorite-apps "['gnuradio-grc.desktop', 'terminator.desktop', 'gnuradio-web.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
