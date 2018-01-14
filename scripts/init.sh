@@ -42,3 +42,6 @@ fi
 
 mkdir -p Documents
 mkdir -p .local/share/applications
+
+echo 'export PATH=~/.local/bin:${PATH}' >> .bashrc
+. .bashrc

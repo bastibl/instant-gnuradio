@@ -106,7 +106,7 @@
         {
             "type": "file",
             "source": "assets/wallpaper.png",
-            "destination": "Documents/wallpaper.png"
+            "destination": "Pictures/wallpaper.png"
         },
         {
             "type": "shell",

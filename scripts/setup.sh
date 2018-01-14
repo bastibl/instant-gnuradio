@@ -4,19 +4,20 @@ set -e
 set -x
 
 sudo apt -y install ubuntu-gnome-desktop
-sudo apt -y install git git-gui gitk tig cmake libboost-all-dev curl wget htop vim vim-gnome
+sudo apt -y install git git-gui gitk tig cmake libboost-all-dev curl wget htop vim vim-gnome terminator xterm python-apt
 
 sudo apt -y install python-pip
-pip install --upgrade pip
-#pip install PyBOMBS
+sudo pip install --upgrade pip
 
-# pybombs recipes add gr-recipes git+https://github.com/gnuradio/gr-recipes.git
-# pybombs recipes add gr-etcetera git+https://github.com/gnuradio/gr-etcetera.git
-# pybombs prefix init /home/gnuradio/pybombs -a myprefix
-# pybombs config default_prefix myprefix
-# pybombs config satisfy_order src,native
-# pybombs install limesuite
-# pybombs install gqrx
+pip install --user PyBOMBS
+
+pybombs recipes add gr-recipes git+https://github.com/gnuradio/gr-recipes.git
+pybombs recipes add gr-etcetera git+https://github.com/gnuradio/gr-etcetera.git
+pybombs prefix init /home/gnuradio/pybombs -a myprefix
+pybombs config default_prefix myprefix
+pybombs config satisfy_order src,native
+pybombs install limesuite
+pybombs install gqrx
 #cd ~/pybombs/src/gr-osmosdr/build/
 #git remote add argilo https://github.com/argilo/gr-osmosdr.git
 #git fetch argilo
@@ -39,12 +40,10 @@ pip install --upgrade pip
 
 
 ### WALLPAPER
-gsettings set org.gnome.desktop.background picture-uri "file:///home/gnuradio/Documents/wallpaper.png"
+gsettings set org.gnome.desktop.background picture-uri "file:///home/gnuradio/Pictures/wallpaper.png"
 
 
 ### FAVORIT APPLICATIONS
 
-
-### no accounts
 
 ### gnome keyboard
