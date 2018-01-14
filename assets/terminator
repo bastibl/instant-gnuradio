@@ -1,5 +1,5 @@
 [global_config]
-  borderless = True
+  borderless = False
   enabled_plugins = ,
 [keybindings]
   broadcast_all = None
