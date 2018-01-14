@@ -140,8 +140,18 @@
         },
         {
             "type": "file",
+            "source": "assets/zenburn.vim",
+            "destination": ".vim/colors/zenburn.vim"
+        },
+        {
+            "type": "file",
             "source": "assets/spacemacs",
             "destination": ".spacemacs"
+        },
+        {
+            "type": "file",
+            "source": "assets/gitconfig",
+            "destination": ".gitconfig"
         },
         {
             "type": "shell",

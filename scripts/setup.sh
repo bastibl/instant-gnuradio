@@ -56,20 +56,20 @@ fc-cache -fr
 ### Spacemacs
 sudo apt -y install emacs25
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-#emacs -nw --batch --eval "(save-buffers-kill-emacs)"
+emacs -nw --batch -l ~/.emacs.d/init.el
 
 ### VIM
 sudo apt -y install vim vim-gnome
 mkdir -p .vim/bundle
 mkdir -p .swp
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-#vim +PlugInstall +qall
+vim +PlugInstall +qall
 
 ### WALLPAPER
 gsettings set org.gnome.desktop.background picture-uri "file:///home/gnuradio/Pictures/wallpaper.png"
 
 ### FAVORIT APPLICATIONS
-xvfb-run dconf write /org/gnome/shell/favorite-apps "['gnuradio-grc.desktop', 'terminator.desktop', gnuradio-web.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
+xvfb-run dconf write /org/gnome/shell/favorite-apps "['gnuradio-grc.desktop', 'terminator.desktop', 'gnuradio-web.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
 
 ### SKIP INITIAL SETUP
 sudo apt remove -y gnome-initial-setup

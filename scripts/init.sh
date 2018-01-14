@@ -41,7 +41,9 @@ fi
 
 
 mkdir -p Documents
+mkdir -p Pictures
 mkdir -p .local/share/applications
 mkdir -p .config/terminator
 mkdir -p .local/share/applications
 mkdir -p .fonts
+mkdir -p .vim/colors
