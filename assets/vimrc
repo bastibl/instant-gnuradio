@@ -1,0 +1,150 @@
+set nocompatible
+filetype off
+
+" Vundle packagemanagement
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/Align'
+Plugin 'mileszs/ack.vim'
+
+call vundle#end()
+filetype plugin indent on
+syntax on
+
+set tabpagemax=100
+set backspace=2
+set equalalways
+set laststatus=2
+set linebreak
+set mouse=a
+set nojoinspaces
+set nostartofline
+set nrformats=hex " don't treat leading zero as octal
+set number
+set scrolloff=3
+set showbreak=.....
+set showmatch
+set splitright
+set t_Co=256
+set virtualedit+=block
+set wildmenu
+
+" searching
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+set directory=~/.swp
+set backupdir=~/.swp
+
+" auto commands
+autocmd FileType html    setlocal indentexpr=
+autocmd FileType tex     setlocal indentexpr=
+autocmd BufNewFile,BufRead *.html set filetype=html
+
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+
+" spelling
+setlocal spell spelllang=en
+set nospell
+
+let maplocalleader = ","
+
+" show hidden characters
+set listchars=tab:▸\ ,eol:¬
+set list
+highlight NonText ctermfg=4
+highlight SpecialKey ctermfg=4
+
+" switch between windows
+nnoremap <C-j> <C-W>W
+nnoremap <C-k> <C-W>w
+
+" switch between tabs
+nnoremap <S-tab> gT
+vnoremap <S-tab> gT
+
+" tags
+map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+set tags+=./tags
+set tags+=./../tags
+set tags+=./../../tags
+set tags+=./../../../tags
+set tags+=./../../../../tags
+set tags+=./../../../../../tags
+
+
+" show extra whitespace (whitespace at end of line | tabs in the middle of a line | whitespace after a tab)
+:highlight ExtraWhitespace None 
+:match ExtraWhitespace /\v\s+$|[^\t]\zs\t|\t\zs +/
+autocmd InsertEnter * highlight ExtraWhitespace gui=undercurl guisp=red ctermfg=white ctermbg=red
+autocmd InsertLeave * highlight ExtraWhitespace None
+
+
+" use w!! to save current buffer as root
+cmap w!! w !sudo tee % >/dev/null
+
+" copy stuff
+nmap ,x "+d
+imap ,x <Nop>
+vmap ,x "+d
+nmap ,c "+y
+imap ,c <Nop>
+vmap ,c "+y
+nmap ,v "+p
+imap ,v <C-O>"+p
+vmap ,v "+p
+
+"
+" ============== COLOR SCHEME =============
+"
+let g:zenburn_high_Contrast=1
+colorscheme zenburn
+highlight Normal     gui=none guifg=#CCCCCC    guibg=Black   cterm=none    ctermfg=LightGrey  ctermbg=Black
+highlight Folded     gui=none guifg=Black      guibg=#555599 cterm=none    ctermfg=Black      ctermbg=Blue
+highlight Visual     gui=bold guifg=Black      guibg=White   cterm=reverse
+highlight Comment    gui=none guifg=#AAEEAA    guibg=Black   cterm=none    ctermfg=LightGreen
+highlight Search     gui=bold guifg=Black      guibg=Yellow  cterm=none    ctermfg=Black      ctermbg=Yellow
+highlight DiffDelete gui=bold guibg=LightRed   guifg=Black   cterm=bold    ctermbg=LightRed   ctermfg=Black
+highlight DiffChange gui=bold guibg=Gray       guifg=Black   cterm=bold    ctermbg=Gray       ctermfg=Black
+highlight DiffAdd    gui=bold guibg=LightGreen guifg=Black   cterm=bold    ctermbg=LightGreen ctermfg=Black
+highlight DiffText   gui=bold guibg=Cyan       guifg=Black   cterm=bold    ctermbg=Cyan       ctermfg=Black
+highlight Cursor     gui=bold guifg=Black      guibg=Green   cterm=bold    ctermfg=Black      ctermbg=Green
+highlight LineNr     gui=none guifg=#555599    guibg=Black   cterm=none    ctermfg=Blue       ctermbg=None
+highlight TabLineFill ctermbg=None
+highlight Normal     ctermbg=None
+highlight MatchParen cterm=bold ctermfg=228 ctermbg=238
+
+"
+" ============= NERDTREE plugin ============
+"
+let NERDTreeMapJumpNextSibling='C-0'
+let NERDTreeMapJumpPrevSibling='C-0'
+let NERDTreeMapJumpFirstChild='C-0'
+let NERDTreeMapJumpLastChild='C-0'
+nnoremap <silent> <C-h> :NERDTreeToggle<CR>
+
+"
+" ============= CTRL-P plugin ============
+"
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_follow_symlinks=1
+let g:ctrlp_clear_cache_on_exit=0
+set wildignore+=*/.git/*,*/build/*,*/doc/*
+let g:ctrlp_max_depth = 40
+
+"
+" ============= ACK plugin ============
+"
+if executable('ack')
+	let g:ackprg = 'ack -k --ignore-dir=build'
+elseif executable('ack-grep')
+	let g:ackprg = "ack-grep -k --ignore-dir=build"
+endif
+

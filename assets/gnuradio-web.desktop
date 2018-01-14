@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=GNU Radio documentation online
+Exec=firefox --class gnuradio-web -- 'https://wiki.gnuradio.org/index.php/Main_Page'
+Icon=help-faq
+Categories=Science;
+StartupWMClass=gnuradio-web

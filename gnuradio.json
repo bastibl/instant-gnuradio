@@ -4,8 +4,8 @@
         "iso_url": "{{user `iso_url`}}",
         "iso_checksum": "{{user `iso_checksum`}}",
         "iso_checksum_type": "{{user `iso_checksum_type`}}",
-        "output_directory": "image-{{build_type}}",
-        "vm_name": "{{user `vm_name`}}",
+        "output_directory": "vms",
+        "vm_name": "gnuradio-{{build_type}}",
         "disk_size": "{{user `disk_size`}}",
         "format": "raw",
         "headless": "{{user `headless`}}",
@@ -37,8 +37,8 @@
         "iso_url": "{{user `iso_url`}}",
         "iso_checksum": "{{user `iso_checksum`}}",
         "iso_checksum_type": "{{user `iso_checksum_type`}}",
-        "output_directory": "image-{{build_type}}",
-        "vm_name": "{{user `vm_name`}}",
+        "output_directory": "vms",
+        "vm_name": "gnuradio-{{build_type}}",
         "disk_size": "{{user `disk_size`}}",
         "headless": "{{user `headless`}}",
         "http_directory": "http",
@@ -69,8 +69,8 @@
         "iso_url": "{{user `iso_url`}}",
         "iso_checksum": "{{user `iso_checksum`}}",
         "iso_checksum_type": "{{user `iso_checksum_type`}}",
-        "output_directory": "image-{{build_type}}",
-        "vm_name": "{{user `vm_name`}}",
+        "output_directory": "vms",
+        "vm_name": "gnuradio-{{build_type}}",
         "disk_size": "{{user `disk_size`}}",
         "headless": "{{user `headless`}}",
         "http_directory": "http",
@@ -110,8 +110,38 @@
         },
         {
             "type": "file",
+            "source": "assets/zshrc",
+            "destination": ".zshrc"
+        },
+        {
+            "type": "file",
+            "source": "assets/zshenv",
+            "destination": ".zshenv"
+        },
+        {
+            "type": "file",
             "source": "assets/terminator",
             "destination": ".config/terminator/config"
+        },
+        {
+            "type": "file",
+            "source": "assets/gnuradio-web.desktop",
+            "destination": ".local/share/applications/gnuradio-web.desktop"
+        },
+        {
+            "type": "file",
+            "source": "assets/UbuntuMono-Nerd-Font.ttf",
+            "destination": ".fonts/UbuntuMono-Nerd-Font.ttf"
+        },
+        {
+            "type": "file",
+            "source": "assets/vimrc",
+            "destination": ".vimrc"
+        },
+        {
+            "type": "file",
+            "source": "assets/spacemacs",
+            "destination": ".spacemacs"
         },
         {
             "type": "shell",

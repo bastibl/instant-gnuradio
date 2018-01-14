@@ -35,7 +35,7 @@
     copy_on_selection = True
     cursor_blink = False
     cursor_color = "#c3dbea"
-    font = UbuntuMono 12
+    font = UbuntuMono Nerd Font 12
     foreground_color = "#dcdccc"
     palette = "#000000:#bf7276:#86af80:#968a38:#3673b5:#9a70b2:#7abecc:#dbdbdb:#6692af:#e5505f:#87bc87:#e0d95c:#1b85d6:#ad73ba:#338eaa:#f4f4f4"
     scrollback_lines = 20000
