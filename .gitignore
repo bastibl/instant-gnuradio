@@ -1,0 +1,4 @@
+packer_cache
+image-qemu
+image-virtualbox-iso
+image-vmware-iso
