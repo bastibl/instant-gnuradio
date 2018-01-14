@@ -98,20 +98,21 @@
     }],
     "provisioners": [
         {
+            "type": "shell",
+            "scripts": [
+                "scripts/init.sh"
+            ]
+        },
+        {
             "type": "file",
             "source": "assets/wallpaper.png",
-            "destination": ".local/share/bastibl/wallpaper.png"
+            "destination": "Documents/wallpaper.png"
         },
         {
             "type": "shell",
             "scripts": [
-                "scripts/apt.sh",
-                "scripts/virtualbox.sh",
-                "scripts/vmware.sh",
-                "scripts/sshd.sh",
-                "scripts/gnuradio.sh",
-                "scripts/cleanup.sh",
-                "scripts/minimize.sh"
+                "scripts/setup.sh",
+                "scripts/cleanup.sh"
             ]
         }
     ],

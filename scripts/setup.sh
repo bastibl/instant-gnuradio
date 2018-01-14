@@ -39,6 +39,8 @@ pip install --upgrade pip
 
 
 ### WALLPAPER
+gsettings set org.gnome.desktop.background picture-uri "file:///home/gnuradio/Documents/wallpaper.png"
+
 
 ### FAVORIT APPLICATIONS
 
