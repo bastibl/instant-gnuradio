@@ -54,7 +54,7 @@ df -h
 
 pybombs install gqrx
 pybombs install gr-osmosdr
-pybombs install gr-fosphor
+#pybombs install gr-fosphor
 pybombs install gr-foo
 pybombs install gr-ieee-80211
 pybombs install gr-ieee-802154

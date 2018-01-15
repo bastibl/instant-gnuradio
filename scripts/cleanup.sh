@@ -1,25 +1,41 @@
-#!/bin/bash
+#!/bin/bash -eux
 
-set -e
-set -x
+echo "==> Cleaning up tmp"
+rm -rf /tmp/*
 
-sudo apt-get clean
+echo "==> Cleanup apt cache"
+apt-get -y autoremove --purge
+apt-get -y clean
+apt-get -y autoclean
 
+echo "==> Remove Bash history"
+unset HISTFILE
+rm -f /root/.bash_history
+rm -f /home/*/.bash_history
 
+echo "==> Clean up log files"
+find /var/log -type f | while read f; do echo -ne '' > "${f}"; done;
 
-sudo dd if=/dev/zero of=/EMPTY bs=1M || :
-sudo rm /EMPTY
+echo "==> Clearing last login information"
+>/var/log/lastlog
+>/var/log/wtmp
+>/var/log/btmp
 
-# In CentOS 7, blkid returns duplicate devices
-swap_device_uuid=`sudo /sbin/blkid -t TYPE=swap -o value -s UUID | uniq`
-swap_device_label=`sudo /sbin/blkid -t TYPE=swap -o value -s LABEL | uniq`
-if [ -n "$swap_device_uuid" ]; then
-  swap_device=`readlink -f /dev/disk/by-uuid/"$swap_device_uuid"`
-elif [ -n "$swap_device_label" ]; then
-  swap_device=`readlink -f /dev/disk/by-label/"$swap_device_label"`
-fi
-sudo /sbin/swapoff "$swap_device"
-sudo dd if=/dev/zero of="$swap_device" bs=1M || :
-sudo /sbin/mkswap ${swap_device_label:+-L "$swap_device_label"} ${swap_device_uuid:+-U "$swap_device_uuid"} "$swap_device"
+echo "==> Whiteout root"
+count=$(df --sync -kP / | tail -n1  | awk -F ' ' '{print $4}')
+let count--
+dd if=/dev/zero of=/tmp/whitespace bs=1024 count=$count
+rm /tmp/whitespace
 
-sudo sync
+echo "==> Whiteout boot"
+count=$(df --sync -kP /boot | tail -n1 | awk -F ' ' '{print $4}')
+let count--
+dd if=/dev/zero of=/boot/whitespace bs=1024 count=$count
+rm /boot/whitespace
+
+echo '==> Zero out the free space to save space in the final image'
+dd if=/dev/zero of=/EMPTY bs=1M  || echo "dd exit code $? is suppressed"
+rm -f /EMPTY
+
+echo '==> Sync'
+sync

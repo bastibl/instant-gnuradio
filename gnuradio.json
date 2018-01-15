@@ -156,9 +156,15 @@
         {
             "type": "shell",
             "scripts": [
-                "scripts/setup.sh",
-                "scripts/cleanup.sh"
+                "scripts/setup.sh"
             ]
+        },
+        {
+            "type": "shell",
+            "scripts": [
+                "scripts/cleanup.sh"
+            ],
+            "execute_command": "sudo -E bash '{{.Path}}'"
         }
     ],
     "__post-processors": [{
