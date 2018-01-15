@@ -17,6 +17,8 @@ pip install --user PyBOMBS
 
 pybombs recipes add gr-recipes git+https://github.com/gnuradio/gr-recipes.git
 pybombs recipes add gr-etcetera git+https://github.com/gnuradio/gr-etcetera.git
+
+mkdir -p /home/gnuradio/pybombs
 pybombs prefix init /home/gnuradio/pybombs/master -a master
 pybombs prefix init /home/gnuradio/pybombs/next -a next
 pybombs config default_prefix master
@@ -25,6 +27,7 @@ pybombs config satisfy_order src,native
 pyboms install rtl-sdr
 sudo cp pybombs/master/src/rtl-sdr/rtl-sdr.rules /etc/udev/rules.d/
 
+sudo apt -y install libfftw3-dev
 pyboms install hackrf
 sudo cp pybombs/master/src/hackrf/host/libhackrf/53-hackrf.rules /etc/udev/rules.d/
 
@@ -56,6 +59,10 @@ fc-cache -fr
 ### SPACEMACS
 sudo apt -y install emacs25
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+cd .emacs.d
+git checkout -b develop
+git reset --hard origin/develop
+cd ~
 emacs --batch \
   --eval "(setq gc-cons-threshold 100000000)" \
   --eval "(defconst spacemacs-version         \"0.200.10\" \"Spacemacs version.\")" \
