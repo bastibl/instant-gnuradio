@@ -6,8 +6,11 @@ set -x
 export LANG=en_US.UTF-8
 export PATH="$HOME/.local/bin:${PATH}"
 
+df -h
+
 sudo apt -y install ubuntu-gnome-desktop
 sudo apt -y install git git-gui gitk tig cmake libboost-all-dev curl wget htop terminator xterm python-apt clang tmux screen qemu xvfb silversearcher-ag
+sudo apt-get clean
 
 ### PYBOMBS
 sudo apt -y install python-pip
@@ -18,24 +21,37 @@ pip install --user PyBOMBS
 pybombs recipes add gr-recipes git+https://github.com/gnuradio/gr-recipes.git
 pybombs recipes add gr-etcetera git+https://github.com/gnuradio/gr-etcetera.git
 
+df -h
+
 mkdir -p /home/gnuradio/pybombs
 pybombs prefix init /home/gnuradio/pybombs/master -a master
 pybombs prefix init /home/gnuradio/pybombs/next -a next
 pybombs config default_prefix master
 pybombs config satisfy_order src,native
 
-pyboms install rtl-sdr
+df -h
+
+pybombs install rtl-sdr
 sudo cp pybombs/master/src/rtl-sdr/rtl-sdr.rules /etc/udev/rules.d/
 
+df -h
+
 sudo apt -y install libfftw3-dev
-pyboms install hackrf
+pybombs install hackrf
 sudo cp pybombs/master/src/hackrf/host/libhackrf/53-hackrf.rules /etc/udev/rules.d/
+
+df -h
 
 pybombs install uhd
 sudo cp pybombs/master/src/uhd/host/utils/uhd-usrp.rules /etc/udev/rules.d/
 pybombs/master/lib/uhd/utils/uhd_images_downloader.py
 
+df -h
+
 pybombs install gnuradio
+
+df -h
+
 pybombs install gqrx
 pybombs install gr-osmosdr
 pybombs install gr-fosphor
