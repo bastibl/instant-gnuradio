@@ -12,7 +12,7 @@ source $ZSH/oh-my-zsh.sh
 PROMPT='%(!.%{$fg[red]%}.%{$fg[green]%}%n@)%m%{$fg_no_bold[yellow]%} $(git_prompt_info)%{$fg_bold[yellow]%}%(!.%1~.%~) %{$reset_color%}>%{$fg_bold[white]%}>%{$reset_color%} '
 ZSH_THEME_GIT_PROMPT_SUFFIX="):"
 
-export PATH="~/.local/bin:${PATH}"
+export PATH="${HOME}/.local/bin:${PATH}"
 
 bindkey '^v' edit-command-line
 
