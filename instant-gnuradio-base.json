@@ -49,11 +49,6 @@
         },
         {
             "type": "file",
-            "source": "assets/disable-screen-blanking.desktop",
-            "destination": ".config/autostart/disable-screen-blanking.desktop"
-        },
-        {
-            "type": "file",
             "source": "assets/zshrc",
             "destination": ".zshrc"
         },

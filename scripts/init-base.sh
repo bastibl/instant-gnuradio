@@ -21,7 +21,7 @@ sudo localectl set-locale LANG="en_US.UTF-8"
 echo "UseDNS no" | sudo tee -a /etc/ssh/sshd_config
 
 echo "==> Customizing message of the day"
-echo "Welcome to Instant GNU Radio!\n\n" | sudo tee -a /etc/motd
+echo -e "Welcome to Instant GNU Radio\n\n" | sudo tee -a /etc/motd
 
 echo "==> Modifying User Dirs"
 sudo sed -i s/enabled=True/enabled=False/g /etc/xdg/user-dirs.conf

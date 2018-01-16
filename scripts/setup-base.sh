@@ -59,12 +59,12 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +VundleInstall +qall
 
 ### WALLPAPER
-xvfb-run dconf write /org/gnome/desktop/background/picture-uri \"file:///home/gnuradio/Pictures/wallpaper.png\"
+dconf write /org/gnome/desktop/background/picture-uri \"file:///home/gnuradio/Pictures/wallpaper.png\"
 
 ### Screen Blanking
-xvfb-run dconf write /org/gnome/settings-daemon/plugins/power/sleep-display-ac 0
-xvfb-run dconf write /org/gnome/settings-daemon/plugins/power/sleep-display-battery 0
-xvfb-run dconf write /org/gnome/desktop/session/idle-delay 0
+dconf write /org/gnome/settings-daemon/plugins/power/sleep-display-ac 'uint32 0'
+dconf write /org/gnome/settings-daemon/plugins/power/sleep-display-battery 'uint32 0'
+dconf write /org/gnome/desktop/session/idle-delay 'uint32 0'
 
 ### Favorites
-xvfb-run dconf write /org/gnome/shell/favorite-apps "['terminator.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
+dconf write /org/gnome/shell/favorite-apps "['terminator.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
