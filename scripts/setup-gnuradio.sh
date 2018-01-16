@@ -18,7 +18,6 @@ mkdir -p /home/gnuradio/pybombs
 pybombs prefix init /home/gnuradio/pybombs/master -a master
 pybombs prefix init /home/gnuradio/pybombs/next -a next
 pybombs config default_prefix master
-pybombs config satisfy_order src,native
 
 pybombs install rtl-sdr
 sudo cp pybombs/master/src/rtl-sdr/rtl-sdr.rules /etc/udev/rules.d/
@@ -41,7 +40,7 @@ pybombs install gr-ieee-80211
 pybombs install gr-ieee-802154
 
 ### FAVORIT APPLICATIONS
-xvfb-run dconf write /org/gnome/shell/favorite-apps "['gnuradio-grc.desktop', 'terminator.desktop', 'gnuradio-web.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
+dconf write /org/gnome/shell/favorite-apps "['gnuradio-grc.desktop', 'terminator.desktop', 'gnuradio-web.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
 
 ### The German Code
-# xvfb-run dconf write /org/gnome/desktop/input-sources/sources "[('xkb', 'de')]"
+# dconf write /org/gnome/desktop/input-sources/sources "[('xkb', 'de')]"
