@@ -1,0 +1,42 @@
+{
+  "builders": [
+    {
+      "type": "virtualbox-ovf",
+      "headless": true,
+      "source_path": "vms/base/instant-gnuradio-base.ovf",
+      "ssh_username": "gnuradio",
+      "ssh_password": "gnuradio",
+      "shutdown_command": "sudo reboot",
+      "guest_additions_mode": "disable",
+      "vm_name": "instant-gnuradio",
+      "export_opts": [
+        "--manifest",
+        "--vsys", "0",
+        "--description", "Instant GNU Radio",
+        "--version", "instant-1"
+      ],
+      "format": "ova",
+      "output_directory": "vms/instant-gnuradio"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "assets/gnuradio-web.desktop",
+      "destination": ".local/share/applications/gnuradio-web.desktop"
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/setup-gnuradio.sh"
+      ]
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/cleanup.sh"
+      ],
+      "execute_command": "sudo -E bash '{{.Path}}'"
+    }
+  ]
+}

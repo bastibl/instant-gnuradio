@@ -1,4 +1,2 @@
 packer_cache
-vm-qemu
-vm-virtualbox
-vm-vmware
+vms
