@@ -3,7 +3,7 @@
     {
       "type": "virtualbox-ovf",
       "headless": true,
-      "source_path": "vms/base/instant-gnuradio-base.ovf",
+      "source_path": "vms/base/instant-gnuradio-base.ova",
       "ssh_username": "gnuradio",
       "ssh_password": "gnuradio",
       "shutdown_command": "sudo reboot",
