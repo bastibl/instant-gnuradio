@@ -28,6 +28,8 @@ password: gnuradio
 
 ## VirtualBox
 
+Add yourself to the `vboxusers` group.
+
 ### Start VM
 
 Open `virtualbox` and import OVA applicane from `vms/instant-gnuradio`.
@@ -52,5 +54,3 @@ Host vm
 ```
 
 Then, you can login with `ssh vm` and your password.
-
-

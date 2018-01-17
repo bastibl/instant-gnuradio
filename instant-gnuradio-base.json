@@ -33,7 +33,10 @@
             ["modifyvm", "{{.Name}}", "--memory", "4096"],
             ["modifyvm", "{{.Name}}", "--vram", "128"],
             ["modifyvm", "{{.Name}}", "--cpus", "2"],
-            ["modifyvm", "{{.Name}}", "--natpf1", "guestssh,tcp,127.0.0.1,2222,,22"]
+            ["modifyvm", "{{.Name}}", "--natpf1", "guestssh,tcp,127.0.0.1,2222,,22"],
+            ["modifyvm", "{{.Name}}", "--accelerate3d", "on"],
+            ["modifyvm", "{{.Name}}", "--usb", "on"],
+            ["modifyvm", "{{.Name}}", "--usbxhci", "on"]
         ]
     }],
     "provisioners": [

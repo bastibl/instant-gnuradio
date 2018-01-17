@@ -17,9 +17,13 @@ sleep 5s
 sudo apt-get -y remove apport gnome-initial-setup
 sudo apt-get update
 
-sudo apt-get -y install clang cmake curl git git-core git-gui gitk htop libboost-all-dev open-vm-tools-desktop python-apt python-pip screen silversearcher-ag terminator tig tmux virtualbox-guest-dkms virtualbox-guest-utils wget xterm xvfb
+sudo apt-get -y install clang cmake cmake-qt-gui curl git git-core git-gui gitk htop libboost-all-dev open-vm-tools-desktop python-apt python-pip screen silversearcher-ag terminator tig tmux virtualbox-guest-dkms virtualbox-guest-utils wget xterm xvfb
 
+
+### Drivers
 sudo apt-get -y remove virtualbox-guest-x11
+sudo apt-get -y install bcmwl-kernel-source
+
 
 ### WIRESHARK
 echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections

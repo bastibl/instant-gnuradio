@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Gqrx
+Comment=Software defined radio receiver implemented using GNU Radio and the Qt GUI toolkit
+Exec=/bin/bash -c "source /home/gnuradio/pybombs/master/setup_env.sh && gqrx"
+Icon=gqrx

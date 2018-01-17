@@ -6,7 +6,7 @@
       "source_path": "vms/base/instant-gnuradio-base.ova",
       "ssh_username": "gnuradio",
       "ssh_password": "gnuradio",
-      "shutdown_command": "sudo reboot",
+      "shutdown_command": "sudo systemctl poweroff",
       "guest_additions_mode": "disable",
       "vm_name": "instant-gnuradio",
       "export_opts": [
@@ -24,6 +24,26 @@
       "type": "file",
       "source": "assets/gnuradio-web.desktop",
       "destination": ".local/share/applications/gnuradio-web.desktop"
+    },
+    {
+      "type": "file",
+      "source": "assets/opencl_runtime_16.1.2_x64_rh_6.4.0.37.tgz",
+      "destination": "Downloads/opencl_runtime_16.1.2_x64_rh_6.4.0.37.tgz"
+    },
+    {
+      "type": "file",
+      "source": "assets/opencl-silent.cfg",
+      "destination": "Downloads/opencl-silent.cfg"
+    },
+    {
+      "type": "file",
+      "source": "assets/gqrx.desktop",
+      "destination": ".local/share/applications/gqrx.desktop"
+    },
+    {
+      "type": "file",
+      "source": "assets/gqrx.png",
+      "destination": "Pictures/gqrx.png"
     },
     {
       "type": "shell",
