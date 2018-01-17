@@ -3,13 +3,13 @@
     {
         "type": "virtualbox-iso",
         "guest_os_type": "Ubuntu_64",
-        "iso_url": "http://releases.ubuntu.com/17.04/ubuntu-17.04-server-amd64.iso",
-        "iso_checksum": "ca5d9a8438e2434b9a3ac2be67b5c5fa2c1f8e3e40b954519462935195464034",
+        "iso_url": "http://releases.ubuntu.com/17.10/ubuntu-17.10.1-server-amd64.iso",
+        "iso_checksum": "8ff73f1b622276758475c3bd5190b382774626de5a82c50930519381f6c3a3f8",
         "iso_checksum_type": "sha256",
         "output_directory": "vms/base",
         "vm_name": "instant-gnuradio-base",
         "disk_size": "20000",
-        "headless": "true",
+        "headless": "false",
         "http_directory": ".",
         "boot_wait": "5s",
         "boot_command": [
@@ -55,16 +55,6 @@
             "type": "file",
             "source": "assets/zshrc",
             "destination": ".zshrc"
-        },
-        {
-            "type": "file",
-            "source": "assets/cpu-performance.sh",
-            "destination": "bin/cpu-performance.sh"
-        },
-        {
-            "type": "file",
-            "source": "assets/cpu-performance.desktop",
-            "destination": ".config/autostart/cpu-performance.desktop"
         },
         {
             "type": "file",

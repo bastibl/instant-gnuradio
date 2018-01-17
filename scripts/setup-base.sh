@@ -17,7 +17,7 @@ sleep 5s
 sudo apt-get -y remove apport gnome-initial-setup
 sudo apt-get update
 
-sudo apt-get -y install clang cmake cmake-qt-gui cpufrequtils curl git git-core git-gui gitk htop libboost-all-dev open-vm-tools-desktop python-apt python-pip screen silversearcher-ag terminator tig tmux virtualbox-guest-dkms virtualbox-guest-utils wget xterm xvfb
+sudo apt-get -y install clang cmake cmake-qt-gui curl git git-core git-gui gitk htop libboost-all-dev open-vm-tools-desktop python-apt python-pip screen silversearcher-ag terminator tig tmux virtualbox-guest-dkms virtualbox-guest-utils wget xterm xvfb
 
 ### Drivers
 sudo apt-get -y remove virtualbox-guest-x11
@@ -70,7 +70,10 @@ xvfb-run dconf write /org/gnome/settings-daemon/plugins/power/sleep-display-batt
 xvfb-run dconf write /org/gnome/desktop/session/idle-delay 'uint32 0'
 
 ### CPU Freq
-chmod u+x bin/cpu-performance.sh
+sudo apt-get -y install cpufrequtils
+sudo systemctl stop ondemand
+sudo systemctl disable ondemand
+echo "GOVERNOR=\"performance\"" | sudo tee -a /etc/default/cpufrequtils
 
 ### Favorites
 xvfb-run dconf write /org/gnome/shell/favorite-apps "['terminator.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"

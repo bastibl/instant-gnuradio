@@ -33,7 +33,7 @@ packer build instant-gnuradio.json
 ## Main Features
 
 - OVA VM appliance can be imported in all main virtualization solutions or `dd`ed on a USB drive
-- Based on Ubuntu 17.04 w/ GNOME 3.
+- Based on Ubuntu 17.10 w/ GNOME 3.
 - Two step build process: first create a base image, then extend it with SDR stuff.
 - Easy to brand for your own courses/workshops. For example, just replace the wallpaper in the `assets` folder.
 - Software: GNU Radio, GQRX, gr-ieee-***, ...
@@ -41,6 +41,7 @@ packer build instant-gnuradio.json
 - Hardware: HackRF, RTL-SDR, UHD; properly setup with udev rules and downloaded images.
 - Productivit: VIM and Spacemacs (plugins alread downloaded and ready for offline use).
 - Favorite applications (in the sidebar) are set to GNU Radio Companion, GQRX, GNU Radio Wiki, etc.
+- CPU Governors are set to Performance
 - No screen blanking.
 - No `sudo` password.
 

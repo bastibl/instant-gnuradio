@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=CPU Freq
-Comment=Sets CPU Governor Performance for all CPUs
-Exec=/home/gnuradio/bin/cpu-performance.sh
-Type=Application  
-Name[en_US]=cpu-performance

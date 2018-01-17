@@ -9,6 +9,9 @@ echo "==> Upgrading Packages"
 sudo apt-get -y upgrade
 
 echo "==> Installing ubuntu-gnome-desktop"
+sudo apt-get install -y network-manager
+sudo systemctl start NetworkManager
+sudo apt-get install -y network-manager-config-connectivity-ubuntu
 sudo apt-get install -y gnome-shell ubuntu-gnome-desktop
 
 echo "==> Disabling the release upgrader"
