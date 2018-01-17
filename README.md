@@ -1,4 +1,6 @@
-# WIP, don't use!
+# Instant GNU Radio
+
+
 
 ## Dependencies
 
@@ -11,27 +13,32 @@ sudo apt install packer
 You have to be online.
 
 ``` bash
-packer build --only=qemu gnuradio.json
-
+packer build instant-gnuradio-base.json
+packer build instant-gnuradio.json
 ```
 
+## Main Features
 
-## QEMU
+## Credentials
 
+``` bash
+user: gnuradio
+password: gnuradio
+```
+
+## VirtualBox
 
 ### Start VM
 
-``` bash
-./start_qemu.sh
-
-```
+Open `virtualbox` and import OVA applicane from `vms/instant-gnuradio`.
 
 ### SSH Login
-
-Password is `gnuradio`.
 
 ``` bash
 ssh -p2222 gnuradio@localhost
 ```
+
+Password is `gnuradio`.
+
 
 

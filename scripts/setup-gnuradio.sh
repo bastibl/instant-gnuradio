@@ -22,13 +22,16 @@ pybombs config default_prefix master
 pybombs install rtl-sdr
 sudo cp pybombs/master/src/rtl-sdr/rtl-sdr.rules /etc/udev/rules.d/
 
-sudo apt -y install libfftw3-dev
+sudo apt-get -y install libfftw3-dev
 pybombs install hackrf
 sudo cp pybombs/master/src/hackrf/host/libhackrf/53-hackrf.rules /etc/udev/rules.d/
 
 pybombs install uhd
 sudo cp pybombs/master/src/uhd/host/utils/uhd-usrp.rules /etc/udev/rules.d/
 pybombs/master/lib/uhd/utils/uhd_images_downloader.py
+
+sudo apt-get -y install libwxgtk3.0-dev
+pybombs install wxpython
 
 pybombs install gnuradio
 
@@ -40,7 +43,7 @@ pybombs install gr-ieee-80211
 pybombs install gr-ieee-802154
 
 ### FAVORIT APPLICATIONS
-dconf write /org/gnome/shell/favorite-apps "['gnuradio-grc.desktop', 'terminator.desktop', 'gnuradio-web.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
+xvfb-run dconf write /org/gnome/shell/favorite-apps "['gnuradio-grc.desktop', 'terminator.desktop', 'gnuradio-web.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
 
 ### The German Code
-# dconf write /org/gnome/desktop/input-sources/sources "[('xkb', 'de')]"
+xvfb-run dconf write /org/gnome/desktop/input-sources/sources "[('xkb', 'de')]"

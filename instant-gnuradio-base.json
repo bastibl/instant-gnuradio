@@ -9,7 +9,7 @@
         "output_directory": "vms/base",
         "vm_name": "instant-gnuradio-base",
         "disk_size": "20000",
-        "headless": "true",
+        "headless": "false",
         "http_directory": ".",
         "boot_wait": "5s",
         "boot_command": [
@@ -32,7 +32,8 @@
         "vboxmanage": [
             ["modifyvm", "{{.Name}}", "--memory", "4096"],
             ["modifyvm", "{{.Name}}", "--vram", "128"],
-            ["modifyvm", "{{.Name}}", "--cpus", "2"]
+            ["modifyvm", "{{.Name}}", "--cpus", "2"],
+            ["modifyvm", "{{.Name}}", "--natpf1", "guestssh,tcp,127.0.0.1,2222,,22"]
         ]
     }],
     "provisioners": [
