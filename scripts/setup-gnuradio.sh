@@ -53,7 +53,8 @@ cd Downloads
 tar xvf opencl_runtime_16.1.2_x64_rh_6.4.0.37.tgz
 sudo opencl_runtime_16.1.2_x64_rh_6.4.0.37/install.sh -s opencl-silent.cfg
 cd ~/pybombs/src/gr-fosphor/build
-cmake -DOpenCL_LIBRARY=/opt/intel/opencl-1.2-6.4.0.37/lib64/libOpenCL.so
+source /home/gnuradio/pybombs/setup_env.sh
+cmake -DOpenCL_LIBRARY=/opt/intel/opencl-1.2-6.4.0.37/lib64/libOpenCL.so ..
 make
 make install
 cd

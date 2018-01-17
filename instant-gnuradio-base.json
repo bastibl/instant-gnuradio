@@ -9,7 +9,7 @@
         "output_directory": "vms/base",
         "vm_name": "instant-gnuradio-base",
         "disk_size": "20000",
-        "headless": "false",
+        "headless": "true",
         "http_directory": ".",
         "boot_wait": "5s",
         "boot_command": [
@@ -55,6 +55,16 @@
             "type": "file",
             "source": "assets/zshrc",
             "destination": ".zshrc"
+        },
+        {
+            "type": "file",
+            "source": "assets/cpu-performance.sh",
+            "destination": "bin/cpu-performance.sh"
+        },
+        {
+            "type": "file",
+            "source": "assets/cpu-performance.desktop",
+            "destination": ".config/autostart/cpu-performance.desktop"
         },
         {
             "type": "file",

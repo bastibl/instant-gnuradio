@@ -17,13 +17,11 @@ sleep 5s
 sudo apt-get -y remove apport gnome-initial-setup
 sudo apt-get update
 
-sudo apt-get -y install clang cmake cmake-qt-gui curl git git-core git-gui gitk htop libboost-all-dev open-vm-tools-desktop python-apt python-pip screen silversearcher-ag terminator tig tmux virtualbox-guest-dkms virtualbox-guest-utils wget xterm xvfb
-
+sudo apt-get -y install clang cmake cmake-qt-gui cpufrequtils curl git git-core git-gui gitk htop libboost-all-dev open-vm-tools-desktop python-apt python-pip screen silversearcher-ag terminator tig tmux virtualbox-guest-dkms virtualbox-guest-utils wget xterm xvfb
 
 ### Drivers
 sudo apt-get -y remove virtualbox-guest-x11
 sudo apt-get -y install bcmwl-kernel-source
-
 
 ### WIRESHARK
 echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections
@@ -43,7 +41,8 @@ sudo apt-get -y install emacs25
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 cd .emacs.d
 git checkout -b develop
-git reset --hard origin/develop
+#git reset --hard origin/develop
+git reset --hard ce13fd51b07e82dbf036c86a002d96448c770796
 cd ~
 emacs --batch \
   --eval "(setq gc-cons-threshold 100000000)" \
@@ -69,6 +68,9 @@ xvfb-run dconf write /org/gnome/desktop/background/picture-uri \"file:///home/gn
 xvfb-run dconf write /org/gnome/settings-daemon/plugins/power/sleep-display-ac 'uint32 0'
 xvfb-run dconf write /org/gnome/settings-daemon/plugins/power/sleep-display-battery 'uint32 0'
 xvfb-run dconf write /org/gnome/desktop/session/idle-delay 'uint32 0'
+
+### CPU Freq
+chmod u+x bin/cpu-performance.sh
 
 ### Favorites
 xvfb-run dconf write /org/gnome/shell/favorite-apps "['terminator.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"

@@ -1,16 +1,25 @@
 # Instant GNU Radio
 
-GitHub doesn't allow uploading files bigger then 100Mb.
-This prevents me from adding the OpenCL runtime to the repo.
-Please first download the runtime and put it into the `assets` folder.
-
-http://registrationcenter-download.intel.com/akdlm/irc_nas/12513/opencl_runtime_16.1.2_x64_rh_6.4.0.37.tgz
-
 ## Dependencies
 
 ```bash
 sudo apt install packer
+sudo apt install virtualbox virtualbox-ext-packer
 ```
+
+On Ubuntu, your user should be in the `vboxusers` group.
+
+``` bash
+sudo usermod -a -G vboxusers <your username>
+```
+
+You have to logout and login again for the changes to take effect.
+
+GitHub doesn't allow uploading files over 100Mb and, therefore, prevents adding the OpenCL runtime to the repo.
+Please download the runtime and put it into the `assets` folder.
+
+http://registrationcenter-download.intel.com/akdlm/irc_nas/12513/opencl_runtime_16.1.2_x64_rh_6.4.0.37.tgz
+
 
 ## Create Image
 
@@ -25,14 +34,15 @@ packer build instant-gnuradio.json
 
 - OVA VM appliance can be imported in all main virtualization solutions or `dd`ed on a USB drive
 - Based on Ubuntu 17.04 w/ GNOME 3.
-- Two step build process. First create a base image, then an extended image with GNU Radio.
-- Easy to brand for your own courses/workshops
+- Two step build process: first create a base image, then extend it with SDR stuff.
+- Easy to brand for your own courses/workshops. For example, just replace the wallpaper in the `assets` folder.
 - Software: GNU Radio, GQRX, gr-ieee-***, ...
-- Hardware: HackRF, RTL-SDR, UHD; properly setup with udev rules and downloaded images
-- Productivit: VIM and Spacemacs (plugins alread downloaded and ready for offline use)
 - Fosphor support!
-- No screen blanking
-- No `sudo` password required
+- Hardware: HackRF, RTL-SDR, UHD; properly setup with udev rules and downloaded images.
+- Productivit: VIM and Spacemacs (plugins alread downloaded and ready for offline use).
+- Favorite applications (in the sidebar) are set to GNU Radio Companion, GQRX, GNU Radio Wiki, etc.
+- No screen blanking.
+- No `sudo` password.
 
 ## Credentials
 
@@ -43,11 +53,9 @@ password: gnuradio
 
 ## VirtualBox
 
-Add yourself to the `vboxusers` group.
-
 ### Start VM
 
-Open `virtualbox` and import OVA applicane from `vms/instant-gnuradio`.
+Start `virtualbox` and import OVA applicane from `vms/instant-gnuradio`.
 
 ### SSH Login
 
@@ -68,4 +76,4 @@ Host vm
 	StrictHostKeyChecking no
 ```
 
-Then, you can login with `ssh vm` and your password.
+With this config, you can login with `ssh vm` and your password.
