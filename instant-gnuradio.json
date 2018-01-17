@@ -42,6 +42,11 @@
     },
     {
       "type": "file",
+      "source": "assets/gnuradio-grc.desktop",
+      "destination": ".local/share/applications/gnuradio-grc.desktop"
+    },
+    {
+      "type": "file",
       "source": "assets/gqrx.png",
       "destination": "Pictures/gqrx.png"
     },
