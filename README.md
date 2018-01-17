@@ -1,6 +1,10 @@
 # Instant GNU Radio
 
+GitHub doesn't allow uploading files bigger then 100Mb.
+This prevents me from adding the OpenCL runtime to the repo.
+Please first download the runtime and put it into the `assets` folder.
 
+http://registrationcenter-download.intel.com/akdlm/irc_nas/12513/opencl_runtime_16.1.2_x64_rh_6.4.0.37.tgz
 
 ## Dependencies
 
@@ -18,6 +22,17 @@ packer build instant-gnuradio.json
 ```
 
 ## Main Features
+
+- OVA VM appliance can be imported in all main virtualization solutions or `dd`ed on a USB drive
+- Based on Ubuntu 17.04 w/ GNOME 3.
+- Two step build process. First create a base image, then an extended image with GNU Radio.
+- Easy to brand for your own courses/workshops
+- Software: GNU Radio, GQRX, gr-ieee-***, ...
+- Hardware: HackRF, RTL-SDR, UHD; properly setup with udev rules and downloaded images
+- Productivit: VIM and Spacemacs (plugins alread downloaded and ready for offline use)
+- Fosphor support!
+- No screen blanking
+- No `sudo` password required
 
 ## Credentials
 
