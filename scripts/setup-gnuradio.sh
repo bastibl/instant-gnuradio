@@ -24,7 +24,7 @@ pybombs install rtl-sdr
 sudo cp pybombs/src/rtl-sdr/rtl-sdr.rules /etc/udev/rules.d/
 
 ### HACKRF
-sudo apt-get -y install libfftw3-dev
+sudo apt-get -y install pkg-config libfftw3-dev
 pybombs install hackrf
 sudo cp pybombs/src/hackrf/host/libhackrf/53-hackrf.rules /etc/udev/rules.d/
 

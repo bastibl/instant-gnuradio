@@ -63,6 +63,9 @@ vim +VundleInstall +qall
 ### WALLPAPER
 xvfb-run dconf write /org/gnome/desktop/background/picture-uri \"file:///home/gnuradio/Pictures/wallpaper.png\"
 
+### NAUTILUS
+xvfb-run dconf write /org/gnome/nautilus/preferences/default-folder-viewer \"list-view\"
+
 ### Screen Blanking
 xvfb-run dconf write /org/gnome/settings-daemon/plugins/power/sleep-display-ac 'uint32 0'
 xvfb-run dconf write /org/gnome/settings-daemon/plugins/power/sleep-display-battery 'uint32 0'
