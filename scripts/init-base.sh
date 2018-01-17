@@ -11,8 +11,8 @@ sudo apt-get -y upgrade
 echo "==> Installing ubuntu-gnome-desktop"
 sudo apt-get install -y network-manager
 sudo systemctl start NetworkManager
-sudo apt-get install -y network-manager-config-connectivity-ubuntu
 sudo apt-get install -y gnome-shell ubuntu-gnome-desktop
+sudo update-alternatives --set gdm3.css /usr/share/gnome-shell/theme/gnome-shell.css
 
 echo "==> Disabling the release upgrader"
 sudo sed -i 's/^Prompt=.*$/Prompt=never/' /etc/update-manager/release-upgrades
