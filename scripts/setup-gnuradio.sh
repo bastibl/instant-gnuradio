@@ -6,7 +6,7 @@ export LANG=en_US.UTF-8
 export PATH="$HOME/.local/bin:${PATH}"
 
 ### PYBOMBS
-sudo apt -y install python-pip
+sudo apt-get -y install python-pip
 sudo pip install --upgrade pip
 
 pip install --user PyBOMBS

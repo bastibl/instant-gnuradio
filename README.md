@@ -40,5 +40,17 @@ ssh -p2222 gnuradio@localhost
 
 Password is `gnuradio`.
 
+You might want to add something like this to your SSH config (`~/.ssh/config`):
+
+``` bash
+Host vm
+	Hostname localhost
+	User gnuradio
+	Port 2222
+	UserKnownHostsFile /dev/null
+	StrictHostKeyChecking no
+```
+
+Then, you can login with `ssh vm` and your password.
 
 
