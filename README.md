@@ -1,8 +1,10 @@
 # Instant GNU Radio
 
-![Screenshot](screen2.png)
+A customizable, programmatically generated VM and live environment for GNU Radio.
 
 If you just want to try the VM, you can download it from [here](https://www.fleark.de/instant-gnuradio.ova) and import it into your VM appliance.
+
+![Screenshot](screen2.png)
 
 ## Main Features
 
