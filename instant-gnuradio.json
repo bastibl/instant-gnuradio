@@ -43,7 +43,7 @@
     {
       "type": "file",
       "source": "assets/gnuradio-grc.desktop",
-      "destination": ".local/share/applications/gnuradio-grc.desktop"
+      "destination": "gnuradio-grc.desktop"
     },
     {
       "type": "file",

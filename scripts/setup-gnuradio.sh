@@ -35,8 +35,10 @@ pybombs/lib/uhd/utils/uhd_images_downloader.py
 
 ### GNU RADIO
 pybombs install gnuradio
-/home/gnuradio/pybombs/libexec/gnuradio/grc_setup_freedesktop
-rm -rf .gnome/apps/gnuradio-grc.desktop
+/home/gnuradio/pybombs/libexec/gnuradio/grc_setup_freedesktop install
+rm -rf ~/.gnome/apps/gnuradio-grc.desktop
+rm -rf ~/.local/share/applications/gnuradio-grc.desktop
+mv gnuradio-grc.desktop .local/share/applications/gnuradio-grc.desktop
 
 ### GQRX
 pybombs install gqrx

@@ -42,6 +42,7 @@ packer build instant-gnuradio.json
 - Productivit: VIM and Spacemacs (plugins alread downloaded and ready for offline use).
 - Favorite applications (in the sidebar) are set to GNU Radio Companion, GQRX, GNU Radio Wiki, etc.
 - CPU Governors are set to Performance
+- No annoying crashreports.
 - No screen blanking.
 - No `sudo` password.
 
@@ -78,3 +79,9 @@ Host vm
 ```
 
 With this config, you can login with `ssh vm` and your password.
+
+## Screenshots
+![Screenshot](screen1.png?raw=true)
+![Screenshot](screen2.png?raw=true)
+![Screenshot](screen3.png?raw=true)
+![Screenshot](screen4.png)

@@ -37,7 +37,9 @@
             ["modifyvm", "{{.Name}}", "--accelerate3d", "on"],
             ["modifyvm", "{{.Name}}", "--usb", "on"],
             ["modifyvm", "{{.Name}}", "--usbxhci", "on"],
-            ["modifyvm", "{{.Name}}", "--clipboard", "bidirectional"]
+            ["modifyvm", "{{.Name}}", "--clipboard", "bidirectional"],
+            ["modifyvm", "{{.Name}}", "--audio", "pulse"],
+            ["modifyvm", "{{.Name}}", "--audioout", "on"]
         ]
     }],
     "provisioners": [

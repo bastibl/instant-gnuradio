@@ -12,7 +12,12 @@ echo "==> Installing ubuntu-gnome-desktop"
 sudo apt-get install -y network-manager
 sudo systemctl start NetworkManager
 sudo apt-get install -y gnome-shell ubuntu-gnome-desktop
+
+### NICER GDM SCREEN
 sudo update-alternatives --set gdm3.css /usr/share/gnome-shell/theme/gnome-shell.css
+
+### NO WAYLAND
+sudo sed -i 's/#WaylandEnable=false/WaylandEnable=false/g' /etc/gdm3/custom.conf
 
 echo "==> Disabling the release upgrader"
 sudo sed -i 's/^Prompt=.*$/Prompt=never/' /etc/update-manager/release-upgrades
