@@ -4,7 +4,7 @@
 
 ```bash
 sudo apt install packer
-sudo apt install virtualbox virtualbox-ext-packer
+sudo apt install virtualbox virtualbox-ext-pack
 ```
 
 On Ubuntu, your user should be in the `vboxusers` group.
@@ -23,7 +23,7 @@ http://registrationcenter-download.intel.com/akdlm/irc_nas/12513/opencl_runtime_
 
 ## Create Image
 
-You have to be online.
+While being online, do
 
 ``` bash
 packer build instant-gnuradio-base.json
@@ -35,7 +35,7 @@ packer build instant-gnuradio.json
 - OVA VM appliance can be imported in all main virtualization solutions or `dd`ed on a USB drive
 - Based on Ubuntu 17.10 w/ GNOME 3.
 - Two step build process: first create a base image, then extend it with SDR stuff.
-- Easy to brand for your own courses/workshops. For example, just replace the wallpaper in the `assets` folder.
+- Easy to brand for your own courses/workshops. Just replace the wallpaper in the `assets` folder, for example.
 - Software: GNU Radio, GQRX, gr-ieee-***, ...
 - Fosphor support!
 - Hardware: HackRF, RTL-SDR, UHD; properly setup with udev rules and downloaded images.
@@ -80,8 +80,21 @@ Host vm
 
 With this config, you can login with `ssh vm` and your password.
 
+
+## Live Image
+
+To create a live image from the `ova` do
+
+``` bash
+cd vms/instant-gnuradio
+tar xvf instant-gnuradio.ova
+qemu-img convert -O raw instant-gnuradio-base-disk001.vmdk gr.raw
+dd if=gr.raw of=/dev/sd<X> bs=4M status=progress
+sync
+```
+
 ## Screenshots
-![Screenshot](screen1.png?raw=true)
-![Screenshot](screen2.png?raw=true)
-![Screenshot](screen3.png?raw=true)
+![Screenshot](screen1.png)
+![Screenshot](screen2.png)
+![Screenshot](screen3.png)
 ![Screenshot](screen4.png)
