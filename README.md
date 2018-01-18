@@ -1,6 +1,59 @@
 # Instant GNU Radio
 
-## Dependencies
+![Screenshot](screen2.png)
+
+If you just want to try the VM, you can download it from [here](https://www.fleark.de/instant-gnuradio.ova) and import it into your VM appliance.
+
+## Main Features
+
+- OVA VM appliance can be imported in all main virtualization solutions or `dd`ed on a USB drive.
+- Based on Ubuntu 17.10 w/ GNOME 3.
+- Two step build process: first create a base image, then extend it with SDR stuff.
+- Easy to brand for your own courses/workshops. Just replace the wallpaper in the `assets` folder, for example.
+- Software: GNU Radio, GQRX, gr-ieee-***, ...
+- Fosphor support!
+- Hardware: HackRF, RTL-SDR, UHD; properly setup with udev rules and downloaded images.
+- Productivit: VIM and Spacemacs (plugins alread downloaded and ready for offline use).
+- Favorite applications (in the sidebar) are set to GNU Radio Companion, GQRX, GNU Radio Wiki, ...
+- Sane VM defaults (USB, 3D acceleration, audio, shared clipboard, etc.).
+- Ready for offline use.
+- CPU Governors are set to Performance.
+- No annoying crashreports.
+- No screen blanking.
+- No `sudo` password.
+
+## Credentials
+
+``` bash
+user: gnuradio
+password: gnuradio
+```
+
+### SSH Login
+
+``` bash
+ssh -p2222 gnuradio@localhost
+```
+
+Password is `gnuradio`.
+
+You might want to add something like this to your SSH config (`~/.ssh/config`):
+
+``` bash
+Host vm
+	Hostname localhost
+	User gnuradio
+	Port 2222
+	UserKnownHostsFile /dev/null
+	StrictHostKeyChecking no
+```
+
+With this config, you can login with `ssh vm` and your password.
+
+
+## Customization
+
+If you want to rebuild and customize the environment, read on...
 
 ```bash
 sudo apt install packer
@@ -30,57 +83,6 @@ packer build instant-gnuradio-base.json
 packer build instant-gnuradio.json
 ```
 
-## Main Features
-
-- OVA VM appliance can be imported in all main virtualization solutions or `dd`ed on a USB drive
-- Based on Ubuntu 17.10 w/ GNOME 3.
-- Two step build process: first create a base image, then extend it with SDR stuff.
-- Easy to brand for your own courses/workshops. Just replace the wallpaper in the `assets` folder, for example.
-- Software: GNU Radio, GQRX, gr-ieee-***, ...
-- Fosphor support!
-- Hardware: HackRF, RTL-SDR, UHD; properly setup with udev rules and downloaded images.
-- Productivit: VIM and Spacemacs (plugins alread downloaded and ready for offline use).
-- Favorite applications (in the sidebar) are set to GNU Radio Companion, GQRX, GNU Radio Wiki, etc.
-- CPU Governors are set to Performance
-- No annoying crashreports.
-- No screen blanking.
-- No `sudo` password.
-
-## Credentials
-
-``` bash
-user: gnuradio
-password: gnuradio
-```
-
-## VirtualBox
-
-### Start VM
-
-Start `virtualbox` and import OVA applicane from `vms/instant-gnuradio`.
-
-### SSH Login
-
-``` bash
-ssh -p2222 gnuradio@localhost
-```
-
-Password is `gnuradio`.
-
-You might want to add something like this to your SSH config (`~/.ssh/config`):
-
-``` bash
-Host vm
-	Hostname localhost
-	User gnuradio
-	Port 2222
-	UserKnownHostsFile /dev/null
-	StrictHostKeyChecking no
-```
-
-With this config, you can login with `ssh vm` and your password.
-
-
 ## Live Image
 
 To create a live image from the `ova` do
@@ -88,13 +90,12 @@ To create a live image from the `ova` do
 ``` bash
 cd vms/instant-gnuradio
 tar xvf instant-gnuradio.ova
-qemu-img convert -O raw instant-gnuradio-base-disk001.vmdk gr.raw
+qemu-img convert -O raw instant-gnuradio-disk001.vmdk gr.raw
 dd if=gr.raw of=/dev/sd<X> bs=4M status=progress
 sync
 ```
 
-## Screenshots
+## More Screenshots
 ![Screenshot](screen1.png)
-![Screenshot](screen2.png)
 ![Screenshot](screen3.png)
 ![Screenshot](screen4.png)

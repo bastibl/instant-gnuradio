@@ -39,7 +39,8 @@
             ["modifyvm", "{{.Name}}", "--usbxhci", "on"],
             ["modifyvm", "{{.Name}}", "--clipboard", "bidirectional"],
             ["modifyvm", "{{.Name}}", "--audio", "pulse"],
-            ["modifyvm", "{{.Name}}", "--audioout", "on"]
+            ["modifyvm", "{{.Name}}", "--audioout", "on"],
+            ["modifyvm", "{{.Name}}", "--audioin", "on"]
         ]
     }],
     "provisioners": [
