@@ -17,7 +17,7 @@ sleep 5s
 sudo apt-get -y remove apport gnome-initial-setup
 sudo apt-get update
 
-sudo apt-get -y install clang cmake cmake-qt-gui curl git git-core git-gui gitk htop libboost-all-dev meld open-vm-tools-desktop pavucontrol python-apt python-pip screen silversearcher-ag terminator tig tmux virtualbox-guest-dkms virtualbox-guest-utils wget xterm xvfb
+sudo apt-get -y install clang cmake cmake-qt-gui curl dconf-editor git git-core git-gui gitk htop libboost-all-dev meld open-vm-tools-desktop pavucontrol python-apt python-pip screen silversearcher-ag terminator tig tmux tree virtualbox-guest-dkms virtualbox-guest-utils wget xterm xvfb
 
 ### Drivers
 sudo apt-get -y remove virtualbox-guest-x11
@@ -71,6 +71,10 @@ xvfb-run dconf write /org/gnome/nautilus/preferences/default-folder-viewer \"lis
 xvfb-run dconf write /org/gnome/settings-daemon/plugins/power/sleep-display-ac 'uint32 0'
 xvfb-run dconf write /org/gnome/settings-daemon/plugins/power/sleep-display-battery 'uint32 0'
 xvfb-run dconf write /org/gnome/desktop/session/idle-delay 'uint32 0'
+
+### GNOME Updates
+xvfb-run dconf write /org/gnome/software/allow-updates false
+xvfb-run dconf write /org/gnome/software/download-updates false
 
 ### CPU Freq
 sudo apt-get -y install cpufrequtils
