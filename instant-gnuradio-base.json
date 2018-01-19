@@ -8,7 +8,7 @@
         "iso_checksum_type": "sha256",
         "output_directory": "vms/base",
         "vm_name": "instant-gnuradio-base",
-        "disk_size": "20000",
+        "disk_size": "15800",
         "headless": "true",
         "http_directory": ".",
         "boot_wait": "5s",

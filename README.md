@@ -15,12 +15,12 @@ If you just want to try the VM, you can download it from [here](https://www.flea
 - Software: GNU Radio, GQRX, gr-ieee-***, ...
 - Fosphor support!
 - Hardware: HackRF, RTL-SDR, UHD; properly setup with udev rules and downloaded images.
-- Productivit: VIM and Spacemacs (plugins alread downloaded and ready for offline use).
+- Productivity: Git, Meld, VIM, Spacemacs, ...
 - Favorite applications (in the sidebar) are set to GNU Radio Companion, GQRX, GNU Radio Wiki, ...
 - Sane VM defaults (USB, 3D acceleration, audio, shared clipboard, etc.).
 - Ready for offline use.
-- CPU Governors are set to Performance.
-- No annoying crashreports.
+- CPU governors are set to *performance*.
+- No annoying crash reports dialogs.
 - No screen blanking.
 - No `sudo` password.
 
@@ -78,7 +78,8 @@ http://registrationcenter-download.intel.com/akdlm/irc_nas/12513/opencl_runtime_
 
 ## Create Image
 
-While being online, do
+You have to be online to build the image.
+Then, just run:
 
 ``` bash
 packer build instant-gnuradio-base.json
