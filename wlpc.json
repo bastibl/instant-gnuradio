@@ -1,0 +1,46 @@
+{
+  "builders": [
+    {
+      "type": "virtualbox-ovf",
+      "headless": true,
+      "source_path": "vms/instant-gnuradio/instant-gnuradio.ova",
+      "ssh_username": "gnuradio",
+      "ssh_password": "gnuradio",
+      "shutdown_command": "sudo systemctl poweroff",
+      "guest_additions_mode": "disable",
+      "vm_name": "wlpc",
+      "export_opts": [
+        "--manifest",
+        "--vsys", "0",
+        "--description", "Instant GNU Radio for WLPC",
+        "--version", "instant-1"
+      ],
+      "format": "ova",
+      "output_directory": "vms/wlpc"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "assets/hackrf_usb.bin",
+      "destination": "Documents/hackrf_usb.bin"
+    },
+    {
+      "type": "file",
+      "source": "assets/dfs-etsi.pdf",
+      "destination": "Documents/dfs-etsi.pdf"
+    },
+    {
+      "type": "file",
+      "source": "assets/dfs-fcc.pdf",
+      "destination": "Documents/dfs-fcc.pdf"
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/cleanup.sh"
+      ],
+      "execute_command": "sudo -E bash '{{.Path}}'"
+    }
+  ]
+}
