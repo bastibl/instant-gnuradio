@@ -9,6 +9,8 @@ export PATH="$HOME/.local/bin:${PATH}"
 sudo apt-get -y install python-pip
 sudo pip install --upgrade pip
 
+pip install --user ipython numpy scipy matplotlib
+
 pip install --user PyBOMBS
 
 pybombs recipes add gr-recipes git+https://github.com/gnuradio/gr-recipes.git
