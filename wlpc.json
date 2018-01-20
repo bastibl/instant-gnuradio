@@ -38,6 +38,12 @@
     {
       "type": "shell",
       "scripts": [
+        "scripts/setup-wlpc.sh"
+      ]
+    },
+    {
+      "type": "shell",
+      "scripts": [
         "scripts/cleanup.sh"
       ],
       "execute_command": "sudo -E bash '{{.Path}}'"
