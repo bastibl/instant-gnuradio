@@ -66,6 +66,14 @@ xvfb-run dconf write /org/gnome/desktop/background/picture-uri \"file:///home/gn
 
 ### NAUTILUS
 xvfb-run dconf write /org/gnome/nautilus/preferences/default-folder-viewer \"list-view\"
+xvfb-run dconf write /org/gnome/nautilus/icon-view/default-zoom-level \"standard\"
+
+### Desktop
+# xvfb-run dconf write /org/gnome/desktop/background/show-desktop-icons true
+# xvfb-run dconf write /org/gnome/nautilus/desktop/home-icon-visible true
+# xvfb-run dconf write /org/gnome/nautilus/desktop/network-icon-visible false
+# xvfb-run dconf write /org/gnome/nautilus/desktop/trash-icon-visible true
+# xvfb-run dconf write /org/gnome/nautilus/desktop/volumes-visible false
 
 ### Screen Blanking
 xvfb-run dconf write /org/gnome/settings-daemon/plugins/power/sleep-display-ac 'uint32 0'
