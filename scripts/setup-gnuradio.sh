@@ -5,8 +5,11 @@ set -eux
 export LANG=en_US.UTF-8
 export PATH="$HOME/.local/bin:${PATH}"
 
+echo "gnuradio - rtprio 99" | sudo tee -a /etc/security/limits.conf
+sudo mv 90-usrp.conf /etc/sysctl.d/
+
 ### PYBOMBS
-sudo apt -y install python-ipython python-scipy python-numpy
+sudo apt -y install python-ipython python-scipy python-numpy python-qwt5-qt4
 
 sudo apt-get -y install python-pip
 sudo pip install --upgrade pip
