@@ -51,6 +51,11 @@
       "destination": "Pictures/gqrx.png"
     },
     {
+      "type": "file",
+      "source": "assets/90-usrp.conf",
+      "destination": "90-usrp.conf"
+    },
+    {
       "type": "shell",
       "scripts": [
         "scripts/setup-gnuradio.sh"
