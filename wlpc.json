@@ -36,6 +36,21 @@
       "destination": "Documents/dfs-fcc.pdf"
     },
     {
+      "type": "file",
+      "source": "assets/fm_rx.grc",
+      "destination": "Documents/fm_rx.grc"
+    },
+    {
+      "type": "file",
+      "source": "assets/dfs.grc",
+      "destination": "Documents/dfs.grc"
+    },
+    {
+      "type": "file",
+      "source": "assets/wifi_rx.grc",
+      "destination": "Documents/wifi_rx.grc"
+    },
+    {
       "type": "shell",
       "scripts": [
         "scripts/setup-wlpc.sh"
