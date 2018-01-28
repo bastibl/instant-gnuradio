@@ -3,12 +3,12 @@
     {
       "type": "virtualbox-ovf",
       "headless": true,
-      "source_path": "vms/instant-gnuradio/instant-gnuradio.ova",
+      "source_path": "vms/gnuradio/instant-gnuradio.ova",
       "ssh_username": "gnuradio",
       "ssh_password": "gnuradio",
       "shutdown_command": "sudo systemctl poweroff",
       "guest_additions_mode": "disable",
-      "vm_name": "wlpc",
+      "vm_name": "instant-gnuradio-wlpc",
       "export_opts": [
         "--manifest",
         "--vsys", "0",
