@@ -42,8 +42,7 @@ sudo apt-get -y install emacs25
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 cd .emacs.d
 git checkout -b develop
-#git reset --hard origin/develop
-git reset --hard ce13fd51b07e82dbf036c86a002d96448c770796
+git reset --hard origin/develop
 cd ~
 emacs --batch \
   --eval "(setq gc-cons-threshold 100000000)" \
