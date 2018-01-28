@@ -26,6 +26,7 @@ sudo apt-get -y install bcmwl-kernel-source
 ### WIRESHARK
 echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections
 sudo apt-get -y install wireshark
+sudo usermod -aG wireshark gnuradio
 
 ### ZSH
 sudo apt-get -y install zsh
