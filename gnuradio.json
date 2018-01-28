@@ -16,7 +16,7 @@
         "--version", "instant-1"
       ],
       "format": "ova",
-      "output_directory": "vms/instant-gnuradio"
+      "output_directory": "vms/gnuradio"
     }
   ],
   "provisioners": [
