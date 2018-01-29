@@ -22,9 +22,9 @@ sudo rsync -av --one-file-system --exclude=/proc/* --exclude=/dev/* \
 	--exclude=/etc/fstab --exclude=/etc/mtab --exclude=/etc/hosts \
 	--exclude=/etc/timezone --exclude=/etc/shadow* --exclude=/etc/gshadow* \
 	--exclude=/etc/X11/xorg.conf* --exclude=${CD} --exclude=${WORK}/rootfs \
-	--exclude=/home/gnuradio/live-cd.iso \ 
-	--exclude=/home/gnuradio/chroot.sh \ 
-	--exclude=/home/gnuradio/gen_iso.sh \ 
+	--exclude=/home/gnuradio/live-cd.iso \
+	--exclude=/home/gnuradio/chroot.sh \
+	--exclude=/home/gnuradio/gen_iso.sh \
 	/ ${WORK}/rootfs
 
 sudo rm -rf ${WORK}/rootfs/etc/skel
@@ -79,31 +79,7 @@ menuentry "Ubuntu CLI" {
 linux /casper/vmlinuz boot=casper textonly quiet splash
 initrd /casper/initrd.img
 }
-
-menuentry "Ubuntu GUI persistent mode" {
-linux /casper/vmlinuz boot=casper persistent quiet splash
-initrd /casper/initrd.img
-}
-
-menuentry "Ubuntu GUI from RAM" {
-linux /casper/vmlinuz boot=casper toram quiet splash
-initrd /casper/initrd.img
-}
-
-menuentry "Check Disk for Defects" {
-linux /casper/vmlinuz boot=casper integrity-check quiet splash
-initrd /casper/initrd.img
-}
-
-menuentry "Memory Test" {
-linux16 /boot/memtest86+.bin
-}
-
-menuentry "Boot from the first hard disk" {
-set root=(hd0)
-chainloader +1
-}
 EOF
 
-sudo grub-mkrescue -o ~/live-cd.iso ${CD}
+sudo grub-mkrescue -o ~/instant-gnuradio.iso ${CD}
 
