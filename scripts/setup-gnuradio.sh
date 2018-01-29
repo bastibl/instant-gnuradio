@@ -72,6 +72,11 @@ pybombs install gr-foo
 pybombs install gr-ieee-80211
 pybombs install gr-ieee-802154
 
+### CLEAN UP OUR STUFF
+rm -r Downloads/*
+find -type d pybombs | grep .git | xargs rm -rf
+find -type d pybombs | grep build | xargs rm -rf
+
 ### FAVORIT APPLICATIONS
 xvfb-run dconf write /org/gnome/shell/favorite-apps "['gnuradio-grc.desktop', 'gqrx.desktop', 'terminator.desktop', 'gnuradio-web.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
 
