@@ -88,15 +88,7 @@ packer build instant-gnuradio.json
 
 ## Live Image
 
-To create a live image from the `ova` do
-
-``` bash
-cd vms/instant-gnuradio
-tar xvf instant-gnuradio.ova
-qemu-img convert -O raw instant-gnuradio-disk001.vmdk gr.raw
-dd if=gr.raw of=/dev/sd<X> bs=4M status=progress
-sync
-```
+TBD. See the `gen_iso.sh` and `chroot.sh` script.
 
 ## More Screenshots
 ![Screenshot](screen1.png)
