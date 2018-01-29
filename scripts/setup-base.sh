@@ -17,7 +17,7 @@ sleep 5s
 sudo apt-get -y remove apport gnome-initial-setup
 sudo apt-get update
 
-sudo apt-get -y install clang cmake cmake-qt-gui curl dconf-editor git git-core git-gui gitk htop libboost-all-dev meld open-vm-tools-desktop pavucontrol python-apt python-pip screen silversearcher-ag terminator tig tmux tree virtualbox-guest-dkms virtualbox-guest-utils wget xterm xvfb
+sudo apt-get -y install clang cmake cmake-qt-gui curl dconf-editor git git-core git-gui gitk gparted htop libboost-all-dev meld open-vm-tools-desktop pavucontrol python-apt python-pip screen silversearcher-ag terminator tig tmux tree virtualbox-guest-dkms virtualbox-guest-utils wget xterm xvfb
 
 ### Drivers
 sudo apt-get -y remove virtualbox-guest-x11
