@@ -25,7 +25,7 @@ done
 
 apt-get clean
 
-find /var/log -regex '.*?[0-9].*?' -exec rm -rv {} \;
+find /var/log -regex '.*?[0-9].*?' -exec rm -v {} \;
 
 find /var/log -type f | while read file
 do
