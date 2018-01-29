@@ -9,7 +9,7 @@ echo "gnuradio - rtprio 99" | sudo tee -a /etc/security/limits.conf
 sudo mv 90-usrp.conf /etc/sysctl.d/
 
 ### PYBOMBS
-sudo apt -y install python-ipython python-scipy python-numpy python-qwt5-qt4
+sudo apt -y install python-ipython python-scipy python-numpy python-qwt5-qt4 python-wxgtk3.0
 
 sudo apt-get -y install python-pip
 sudo pip install --upgrade pip
@@ -23,6 +23,7 @@ mkdir -p /home/gnuradio/pybombs
 pybombs prefix init /home/gnuradio/pybombs -a master
 pybombs config default_prefix master
 echo "source /home/gnuradio/pybombs/setup_env.sh" >> .zshrc
+echo "source /home/gnuradio/pybombs/setup_env.sh" >> .bashrc
 
 ### RTL-SDR
 pybombs install rtl-sdr
@@ -74,8 +75,8 @@ pybombs install gr-ieee-802154
 
 ### CLEAN UP OUR STUFF
 rm -r Downloads/*
-find -type d pybombs | grep .git | xargs rm -rf
-find -type d pybombs | grep build | xargs rm -rf
+find ./pybombs -type d -name '.git' | xargs rm -rf
+find ./pybombs -type d -name 'build' | xargs rm -rf
 
 ### FAVORIT APPLICATIONS
 xvfb-run dconf write /org/gnome/shell/favorite-apps "['gnuradio-grc.desktop', 'gqrx.desktop', 'terminator.desktop', 'gnuradio-web.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
