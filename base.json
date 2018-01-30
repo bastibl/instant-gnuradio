@@ -11,6 +11,7 @@
         "disk_size": "15800",
         "headless": "true",
         "http_directory": ".",
+        "guest_additions_mode": "disable",
         "boot_wait": "5s",
         "boot_command": [
             "<esc><wait>",

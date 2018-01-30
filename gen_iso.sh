@@ -21,8 +21,8 @@ sudo rsync -av --one-file-system --exclude=/proc/* --exclude=/dev/* \
 	--exclude=/var/mail/* --exclude=/var/spool/* --exclude=/media/* \
 	--exclude=/etc/fstab --exclude=/etc/mtab --exclude=/etc/hosts \
 	--exclude=/etc/timezone --exclude=/etc/shadow* --exclude=/etc/gshadow* \
-	--exclude=/etc/X11/xorg.conf* --exclude=${CD} --exclude=${WORK}/rootfs \
-	--exclude=/home/gnuradio/live-cd.iso \
+	--exclude=/etc/X11/xorg.conf* --exclude=${CD} --exclude=${WORK}\
+	--exclude=/home/gnuradio/instant-gnuradio.iso \
 	--exclude=/home/gnuradio/chroot.sh \
 	--exclude=/home/gnuradio/gen_iso.sh \
 	/ ${WORK}/rootfs
