@@ -48,7 +48,7 @@ mv gnuradio-grc.desktop .local/share/applications/gnuradio-grc.desktop
 
 ### GQRX
 pybombs install gqrx
-xdg-icon-resource install --context apps --novendor --size 96 Pictures/gqrx.png
+xdg-icon-resource install --context apps --novendor --size 96 Pictures/gqrx-icon.png
 
 ### GR OSMOSDR
 pybombs install gr-osmosdr
@@ -56,6 +56,7 @@ pybombs install gr-osmosdr
 ### FOSPHOR
 sudo apt-get -y install libfreetype6-dev ocl-icd-opencl-dev python-opengl lsb-core
 pybombs install gr-fosphor
+xdg-icon-resource install --context apps --novendor --size 96 Pictures/fosphor-icon.png
 
 cd Downloads
 tar xvf opencl_runtime_16.1.2_x64_rh_6.4.0.37.tgz
@@ -79,7 +80,7 @@ find ./pybombs -type d -name '.git' | xargs rm -rf
 find ./pybombs -type d -name 'build' | xargs rm -rf
 
 ### FAVORIT APPLICATIONS
-xvfb-run dconf write /org/gnome/shell/favorite-apps "['gnuradio-grc.desktop', 'gqrx.desktop', 'terminator.desktop', 'gnuradio-web.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
+xvfb-run dconf write /org/gnome/shell/favorite-apps "['fosphor.desktop', 'gqrx.desktop', 'gnuradio-grc.desktop', 'terminator.desktop', 'gnuradio-web.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
 
 ### The German Code
 # xvfb-run dconf write /org/gnome/desktop/input-sources/sources "[('xkb', 'de')]"

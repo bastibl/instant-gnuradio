@@ -42,13 +42,23 @@
     },
     {
       "type": "file",
+      "source": "assets/fosphor.desktop",
+      "destination": ".local/share/applications/fosphor.desktop"
+    },
+    {
+      "type": "file",
       "source": "assets/gnuradio-grc.desktop",
       "destination": "gnuradio-grc.desktop"
     },
     {
       "type": "file",
-      "source": "assets/gqrx.png",
-      "destination": "Pictures/gqrx.png"
+      "source": "assets/gqrx-icon.png",
+      "destination": "Pictures/gqrx-icon.png"
+    },
+    {
+      "type": "file",
+      "source": "assets/fosphor-icon.png",
+      "destination": "Pictures/fosphor-icon.png"
     },
     {
       "type": "file",

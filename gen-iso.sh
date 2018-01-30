@@ -21,10 +21,10 @@ sudo rsync -av --one-file-system --exclude=/proc/* --exclude=/dev/* \
 	--exclude=/var/mail/* --exclude=/var/spool/* --exclude=/media/* \
 	--exclude=/etc/fstab --exclude=/etc/mtab --exclude=/etc/hosts \
 	--exclude=/etc/timezone --exclude=/etc/shadow* --exclude=/etc/gshadow* \
-	--exclude=/etc/X11/xorg.conf* --exclude=${CD} --exclude=${WORK}\
+	--exclude=/etc/X11/xorg.conf* --exclude=${CD} --exclude=${WORK} \
 	--exclude=/home/gnuradio/instant-gnuradio.iso \
-	--exclude=/home/gnuradio/chroot.sh \
-	--exclude=/home/gnuradio/gen_iso.sh \
+	--exclude=/home/gnuradio/chroot-iso.sh \
+	--exclude=/home/gnuradio/gen-iso.sh \
 	/ ${WORK}/rootfs
 
 sudo rm -rf ${WORK}/rootfs/etc/skel
@@ -38,8 +38,8 @@ sudo mount -o bind /run ${WORK}/rootfs/run
 
 ########### ENTER CHROOT ################
 
-sudo cp ~/chroot.sh  ${WORK}/rootfs/
-sudo chroot ${WORK}/rootfs /bin/bash /chroot.sh
+sudo cp ~/chroot-iso.sh  ${WORK}/rootfs/
+sudo chroot ${WORK}/rootfs /bin/bash /chroot-iso.sh
 
 ########### LEAVE CHROOT ###############
 

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Fosphor
+Comment=Spectrum Analyzer
+Exec=/bin/bash -c "source /home/gnuradio/pybombs/setup_env.sh && osmocom_fft -F"
+Icon=fosphor-icon
