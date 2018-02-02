@@ -65,20 +65,11 @@ cat << EOF | sudo tee ${CD}/boot/grub/grub.cfg
 set default="0"
 set timeout=10
 
-menuentry "Ubuntu GUI" {
+menuentry "Instant GNU Radio" {
 linux /casper/vmlinuz boot=casper quiet splash
 initrd /casper/initrd.img
 }
 
-menuentry "Ubuntu in safe mode" {
-linux /casper/vmlinuz boot=casper xforcevesa quiet splash
-initrd /casper/initrd.img
-}
-
-menuentry "Ubuntu CLI" {
-linux /casper/vmlinuz boot=casper textonly quiet splash
-initrd /casper/initrd.img
-}
 EOF
 
 sudo grub-mkrescue -o ~/instant-gnuradio.iso ${CD}
