@@ -17,8 +17,19 @@ sudo apt-get -y install grub2 xorriso squashfs-tools
 
 sudo rsync -av --one-file-system --exclude=/proc/* --exclude=/dev/* \
 	--exclude=/sys/* --exclude=/tmp/* --exclude=/lost+found \
-	--exclude=/var/tmp/* --exclude=/boot/grub/* --exclude=/root/* \
-	--exclude=/var/mail/* --exclude=/var/spool/* --exclude=/media/* \
+        --exclude=/boot/grub/* \
+        --exclude=/root/* \
+	--exclude=/var/backup/* \
+	--exclude=/var/cache/* \
+	--exclude=/var/crash/* \
+	--exclude=/var/lock/* \
+	--exclude=/var/log/* \
+	--exclude=/var/metrics/* \
+	--exclude=/var/run/* \
+	--exclude=/var/tmp/* \
+	--exclude=/var/mail/* \
+        --exclude=/var/spool/* \
+        --exclude=/media/* \
 	--exclude=/etc/fstab --exclude=/etc/mtab --exclude=/etc/hosts \
 	--exclude=/etc/timezone --exclude=/etc/shadow* --exclude=/etc/gshadow* \
 	--exclude=/etc/X11/xorg.conf* --exclude=${CD} --exclude=${WORK} \
@@ -66,11 +77,10 @@ set default="0"
 set timeout=10
 
 menuentry "Instant GNU Radio" {
-linux /casper/vmlinuz boot=casper quiet splash
+linux /casper/vmlinuz boot=casper liveimg noprompt noeject --
 initrd /casper/initrd.img
 }
 
 EOF
 
 sudo grub-mkrescue -o ~/instant-gnuradio.iso ${CD}
-

@@ -8,7 +8,7 @@ apt-get -y install casper lupin-casper
 
 cat << ABC > /etc/casper.conf
 export USERNAME="gnuradio"
-export USERFULLNAME="gnuradio (password is gnuradio)"
+export USERFULLNAME="gnuradio"
 export HOST="ubuntu"
 export BUILD_SYSTEM="Ubuntu"
 export FLAVOUR="Ubuntu"
