@@ -22,6 +22,7 @@ sudo apt-get -y install clang cmake cmake-qt-gui curl dconf-editor git git-core 
 ### Drivers
 sudo apt-get -y remove virtualbox-guest-x11
 sudo apt-get -y install bcmwl-kernel-source
+sudo apt-get -y install exfat-utils exfat-fuse
 
 ### WIRESHARK
 echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections
