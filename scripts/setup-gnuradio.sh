@@ -16,46 +16,48 @@ sudo pip install --upgrade pip
 
 pip install --user PyBOMBS
 
-pybombs recipes add gr-recipes git+https://github.com/gnuradio/gr-recipes.git
-pybombs recipes add gr-etcetera git+https://github.com/gnuradio/gr-etcetera.git
+pybombs -v recipes add gr-recipes git+https://github.com/gnuradio/gr-recipes.git
+pybombs -v recipes add gr-etcetera git+https://github.com/gnuradio/gr-etcetera.git
 
 mkdir -p /home/gnuradio/pybombs
 pybombs prefix init /home/gnuradio/pybombs -a master
 pybombs config default_prefix master
+echo 'PATH="$HOME/.local/bin:${PATH}"' >> .zshrc
+echo 'PATH="$HOME/.local/bin:${PATH}"' >> .bashrc
 echo "source /home/gnuradio/pybombs/setup_env.sh" >> .zshrc
 echo "source /home/gnuradio/pybombs/setup_env.sh" >> .bashrc
 
 ### RTL-SDR
-pybombs install rtl-sdr
+pybombs -v install rtl-sdr
 sudo cp pybombs/src/rtl-sdr/rtl-sdr.rules /etc/udev/rules.d/
 
 ### HACKRF
 sudo apt-get -y install pkg-config libfftw3-dev
-pybombs install hackrf
+pybombs -v install hackrf
 sudo cp pybombs/src/hackrf/host/libhackrf/53-hackrf.rules /etc/udev/rules.d/
 
 ### UHD
-pybombs install uhd
+pybombs -v install uhd
 sudo cp pybombs/src/uhd/host/utils/uhd-usrp.rules /etc/udev/rules.d/
 pybombs/lib/uhd/utils/uhd_images_downloader.py
 
 ### GNU RADIO
-pybombs install gnuradio
+pybombs -v install gnuradio
 /home/gnuradio/pybombs/libexec/gnuradio/grc_setup_freedesktop install
 rm -rf ~/.gnome/apps/gnuradio-grc.desktop
 rm -rf ~/.local/share/applications/gnuradio-grc.desktop
 mv gnuradio-grc.desktop .local/share/applications/gnuradio-grc.desktop
 
 ### GQRX
-pybombs install gqrx
+pybombs -v install gqrx
 xdg-icon-resource install --context apps --novendor --size 96 Pictures/gqrx-icon.png
 
 ### GR OSMOSDR
-pybombs install gr-osmosdr
+pybombs -v install gr-osmosdr
 
 ### FOSPHOR
 sudo apt-get -y install libfreetype6-dev ocl-icd-opencl-dev python-opengl lsb-core
-pybombs install gr-fosphor
+pybombs -v install gr-fosphor
 xdg-icon-resource install --context apps --novendor --size 96 Pictures/fosphor-icon.png
 
 cd Downloads
@@ -70,9 +72,9 @@ make
 make install
 cd
 
-pybombs install gr-foo
-pybombs install gr-ieee-80211
-pybombs install gr-ieee-802154
+pybombs -v install gr-foo
+pybombs -v install gr-ieee-80211
+pybombs -v install gr-ieee-802154
 
 ### CLEAN UP OUR STUFF
 rm -r Downloads/*
