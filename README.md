@@ -71,7 +71,7 @@ You have to logout and login again for the changes to take effect.
 GitHub doesn't allow uploading files over 100Mb and, therefore, prevents adding the OpenCL runtime to the repo.
 Please download the runtime and put it into the `assets` folder.
 
-http://registrationcenter-download.intel.com/akdlm/irc_nas/12513/opencl_runtime_16.1.2_x64_rh_6.4.0.37.tgz
+http://registrationcenter-download.intel.com/akdlm/irc_nas/12556/opencl_runtime_16.1.2_x64_rh_6.4.0.37.tgz
 
 
 ## Create Image
