@@ -80,8 +80,8 @@ You have to be online to build the image.
 Then, just run:
 
 ``` bash
-packer build instant-gnuradio-base.json
-packer build instant-gnuradio.json
+packer build base.json
+packer build gnuradio.json
 ```
 
 ## Live Image
