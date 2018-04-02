@@ -1,6 +1,10 @@
-.PHONY: clean all
+.PHONY: clean all base gnuradio
 
 all: vms/gnuradio/instant-gnuradio.ova
+
+gnuradio: vms/gnuradio/instant-gnuradio.ova
+
+base: vms/base/instant-gnuradio-base.ova
 
 vms/base/instant-gnuradio-base.ova: base.json
 	packer build base.json
