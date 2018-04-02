@@ -4,19 +4,22 @@ set -eu
 
 echo ""
 echo "Checking for wget (tested with 1.17.1)"
+command -v wget >/dev/null 2>&1 || ( echo "wget not found."; exit 1 )
 wget --version
 
 echo ""
 echo "Checking for HashiCorp Packer (tested with 1.2.1)"
-packer --version
+command -v packer >/dev/null 2>&1 || ( echo "packer not found."; exit 1 )
+packer --version || true
 
 echo ""
 echo "Checking for Oracle VM VirtualBox (tested with 5.2.8)"
+command -v VBoxManage >/dev/null 2>&1 || ( echo "VBoxManage not found."; exit 1 )
 VBoxManage --version
 
 echo ""
 echo "Checking for Oracle VM VirtualBox Extension Pack (tested with 5.2.8)"
-VBoxManage list extpacks | grep "VirtualBox Extension Pack"
+VBoxManage list extpacks | grep "VirtualBox Extension Pack" || ( echo "VirtualBox Extension Pack not installed."; exit 1 )
 
 echo ""
 echo "Downloading OpenCL runtime"
