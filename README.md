@@ -84,7 +84,7 @@ Then, just run:
 configure
 ``` 
 
-to check if all dependencies are satisfied and to download the OpenCL runtime. Once `configure` has successfully run, type
+to check if all dependencies are satisfied. Once `configure` has successfully run, type
 
 ``` bash
 make
