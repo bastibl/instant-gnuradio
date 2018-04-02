@@ -1,0 +1,24 @@
+#!/bin/sh
+
+set -eu
+
+echo ""
+echo "Checking for wget (tested with 1.17.1)"
+wget --version
+
+echo ""
+echo "Checking for HashiCorp Packer (tested with 1.2.1)"
+packer --version
+
+echo ""
+echo "Checking for Oracle VM VirtualBox (tested with 5.2.8)"
+VBoxManage --version
+
+echo ""
+echo "Checking for Oracle VM VirtualBox Extension Pack (tested with 5.2.8)"
+VBoxManage list extpacks | grep "VirtualBox Extension Pack"
+
+echo ""
+echo "Downloading OpenCL runtime"
+(cd assets; wget http://registrationcenter-download.intel.com/akdlm/irc_nas/12556/opencl_runtime_16.1.2_x64_rh_6.4.0.37.tgz)
+
