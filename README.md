@@ -55,6 +55,11 @@ With this config, you can login with `ssh vm` and your password.
 
 If you want to rebuild and customize the environment, read on...
 
+### Prerequisites
+
+Instant GNU Radio requires packer and VirtualBox including the Extension Pack.
+
+On Debian-like systems, the following packets will do the trick:
 
 ```bash
 sudo apt install packer
@@ -69,11 +74,9 @@ sudo usermod -a -G vboxusers <your username>
 
 You have to logout and login again for the changes to take effect.
 
-VM configuration is defined in the packer configuration files `base.json` and `gnuradio.json`.
+### Create Image
 
-## Create Image
-
-You have to be online to build the image.
+Note: You have to be online to build the image.
 
 Then, just run:
 
@@ -91,6 +94,11 @@ to build the virtual machine. The output will be in the `vms/` directory.
 
 Note that there is a `base` file and a `gnuradio` file. If you make changes to your `gnuradio.json` you can save time by only rebuilding the latter by running `make gnuradio`.
 
+### Customizing the Virtual Machines
+
+VM configurations are defined in the packer configuration files `base.json` and `gnuradio.json`.
+
+More information on how to customize the virtual machines can be found on the [packer website](https://www.packer.io/).
 ## Live Image
 
 TBD. See the `gen_iso.sh` and `chroot.sh` script.
