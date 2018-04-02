@@ -55,6 +55,7 @@ With this config, you can login with `ssh vm` and your password.
 
 If you want to rebuild and customize the environment, read on...
 
+
 ```bash
 sudo apt install packer
 sudo apt install virtualbox virtualbox-ext-pack
@@ -68,21 +69,27 @@ sudo usermod -a -G vboxusers <your username>
 
 You have to logout and login again for the changes to take effect.
 
-GitHub doesn't allow uploading files over 100Mb and, therefore, prevents adding the OpenCL runtime to the repo.
-Please download the runtime and put it into the `assets` folder.
-
-http://registrationcenter-download.intel.com/akdlm/irc_nas/12556/opencl_runtime_16.1.2_x64_rh_6.4.0.37.tgz
-
+VM configuration is defined in the packer configuration files `base.json` and `gnuradio.json`.
 
 ## Create Image
 
 You have to be online to build the image.
+
 Then, just run:
 
 ``` bash
-packer build base.json
-packer build gnuradio.json
+configure
+``` 
+
+to check if all dependencies are satisfied and to download the OpenCL runtime. Once `configure` has successfully run, type
+
+``` bash
+make
 ```
+
+to build the virtual machine. The output will be in the `vms/` directory.
+
+Note that there is a `base` file and a `gnuradio` file. If you make changes to your `gnuradio.json` you can save time by only rebuilding the latter by running `make gnuradio`.
 
 ## Live Image
 
