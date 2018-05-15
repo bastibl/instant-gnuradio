@@ -7,7 +7,7 @@ A customizable, programmatically generated VM and live environment for GNU Radio
 ## Main Features
 
 - OVA VM appliance can be imported in all main virtualization solutions or `dd`ed on a USB drive.
-- Based on Ubuntu 17.10 w/ GNOME 3.
+- Based on Ubuntu 18.04 w/ GNOME 3.
 - Two step build process: first create a base image, then extend it with SDR stuff.
 - Easy to brand for your own courses/workshops. Just replace the wallpaper in the `assets` folder, for example.
 - Software: GNU Radio, GQRX, gr-ieee-***, ...
