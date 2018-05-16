@@ -9,7 +9,7 @@ echo "gnuradio - rtprio 99" | sudo tee -a /etc/security/limits.conf
 sudo mv 90-usrp.conf /etc/sysctl.d/
 
 ### PYBOMBS
-sudo apt -y install python-ipython python-scipy python-numpy python-qwt5-qt4 python-wxgtk3.0
+sudo apt -y install python-ipython python-scipy python-numpy python-qwt5-qt4 python-wxgtk3.0 multimon sox
 
 sudo apt-get -y install python-pip
 sudo pip install --upgrade pip
@@ -76,6 +76,10 @@ cd
 pybombs -v install gr-foo
 pybombs -v install gr-ieee-80211
 pybombs -v install gr-ieee-802154
+pybombs -v install gr-rds
+pybombs -v install gr-keyfob
+pybombs -v install inspectrum
+xdg-icon-resource install --context apps --novendor --size 96 Pictures/inspectrum-icon.png
 
 ### CLEAN UP OUR STUFF
 rm -r Downloads/*
@@ -83,7 +87,7 @@ find ./pybombs -type d -name '.git' | xargs rm -rf
 find ./pybombs -type d -name 'build' | xargs rm -rf
 
 ### FAVORIT APPLICATIONS
-xvfb-run dconf write /org/gnome/shell/favorite-apps "['fosphor.desktop', 'gqrx.desktop', 'gnuradio-grc.desktop', 'terminator.desktop', 'gnuradio-web.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
+xvfb-run dconf write /org/gnome/shell/favorite-apps "['gnuradio-grc.desktop', 'gqrx.desktop', 'fosphor.desktop', 'inspectrum.desktop', 'terminator.desktop', 'gnuradio-web.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
 
 ### The German Code
 # xvfb-run dconf write /org/gnome/desktop/input-sources/sources "[('xkb', 'de')]"
