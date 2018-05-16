@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Inspectrum
+Comment=Offline Signal Analyzer
+Exec=/bin/bash -c "source /home/gnuradio/pybombs/setup_env.sh && inspectrum"
+Icon=inspectrum-icon
