@@ -83,7 +83,7 @@ xdg-icon-resource install --context apps --novendor --size 96 Pictures/inspectru
 
 ### CLEAN UP OUR STUFF
 rm -r Downloads/*
-find ./pybombs -type d -name '.git' | xargs rm -rf
+#find ./pybombs -type d -name '.git' | xargs rm -rf
 find ./pybombs -type d -name 'build' | xargs rm -rf
 
 ### FAVORIT APPLICATIONS
