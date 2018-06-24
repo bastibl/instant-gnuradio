@@ -42,18 +42,17 @@ fc-cache -fr
 sudo apt-get -y install emacs25
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 cd .emacs.d
-git checkout -b develop
-git reset --hard origin/develop
+git checkout master
+git reset --hard tags/v0.200.13
 cd ~
 emacs --batch \
-  --eval "(setq gc-cons-threshold 100000000)" \
-  --eval "(load-file \"/home/gnuradio/.emacs.d/core/core-versions.el\")" \
-  --eval "(load-file \"/home/gnuradio/.emacs.d/core/core-load-paths.el\")" \
-  --eval "(require 'core-spacemacs)" \
-  --eval "(configuration-layer/load-lock-file)" \
-  --eval "(spacemacs/init)" \
-  --eval "(configuration-layer/stable-elpa-download-tarball)" \
-  --eval "(configuration-layer/load)"
+    --eval "(setq gc-cons-threshold 100000000)" \
+    --eval "(defconst spacemacs-version \"0.200.13\" \"Spacemacs version.\")" \
+    --eval "(defconst spacemacs-emacs-min-version   \"24.4\" \"Minimal version of Emacs.\")" \
+    --eval "(load-file \"/home/gnuradio/.emacs.d/core/core-load-paths.el\")" \
+    --eval "(require 'core-spacemacs)" \
+    --eval "(spacemacs/init)" \
+    --eval "(configuration-layer/sync)"
 
 ### VIM
 sudo apt-get -y install vim vim-gnome
