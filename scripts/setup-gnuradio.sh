@@ -51,12 +51,13 @@ rm -rf ~/.gnome/apps/gnuradio-grc.desktop
 rm -rf ~/.local/share/applications/gnuradio-grc.desktop
 mv gnuradio-grc.desktop .local/share/applications/gnuradio-grc.desktop
 
+### GR OSMOSDR
+pybombs config --package bladeRF forceinstalled True
+pybombs -v install gr-osmosdr
+
 ### GQRX
 pybombs -v install gqrx
 xdg-icon-resource install --context apps --novendor --size 96 Pictures/gqrx-icon.png
-
-### GR OSMOSDR
-pybombs -v install gr-osmosdr
 
 ### FOSPHOR
 sudo apt-get -y install libfreetype6-dev ocl-icd-opencl-dev python-opengl lsb-core
