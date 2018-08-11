@@ -14,7 +14,9 @@ sudo apt -y install python-ipython python-scipy python-numpy python-qwt5-qt4 pyt
 sudo apt-get -y install python-pip
 sudo pip install --upgrade pip
 
-pip install --user PyBOMBS
+# broken pybombs
+sudo apt-get -y install python-ruamel.yaml
+pip install --user git+git://github.com/gnuradio/pybombs.git
 
 pybombs -v recipes add gr-recipes git+https://github.com/gnuradio/gr-recipes.git
 pybombs -v recipes add gr-etcetera git+https://github.com/gnuradio/gr-etcetera.git
