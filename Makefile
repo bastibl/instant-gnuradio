@@ -9,7 +9,7 @@ base: vms/base/instant-gnuradio-base.ova
 vms/base/instant-gnuradio-base.ova: base.json scripts/setup-base.sh scripts/init-base.sh
 	packer build --force base.json
 
-vms/gnuradio/instant-gnuradio.ova: gnuradio.json assets/opencl_runtime_16.1.2_x64_rh_6.4.0.37.tgz vms/base/instant-gnuradio-base.ova scripts/setup-gnuradido.sh
+vms/gnuradio/instant-gnuradio.ova: gnuradio.json assets/opencl_runtime_16.1.2_x64_rh_6.4.0.37.tgz vms/base/instant-gnuradio-base.ova scripts/setup-gnuradio.sh
 	packer build --force gnuradio.json
 
 assets/opencl_runtime_16.1.2_x64_rh_6.4.0.37.tgz:
