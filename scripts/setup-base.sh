@@ -62,27 +62,27 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +VundleInstall +qall
 
 ### WALLPAPER
-xvfb-run dconf write /org/gnome/desktop/background/picture-uri \"file:///home/gnuradio/Pictures/wallpaper.png\"
+xvfb-run -a dconf write /org/gnome/desktop/background/picture-uri \"file:///home/gnuradio/Pictures/wallpaper.png\"
 
 ### NAUTILUS
-xvfb-run dconf write /org/gnome/nautilus/preferences/default-folder-viewer \"list-view\"
-xvfb-run dconf write /org/gnome/nautilus/icon-view/default-zoom-level \"standard\"
+xvfb-run -a dconf write /org/gnome/nautilus/preferences/default-folder-viewer \"list-view\"
+xvfb-run -a dconf write /org/gnome/nautilus/icon-view/default-zoom-level \"standard\"
 
 ### Desktop
-# xvfb-run dconf write /org/gnome/desktop/background/show-desktop-icons true
-# xvfb-run dconf write /org/gnome/nautilus/desktop/home-icon-visible true
-# xvfb-run dconf write /org/gnome/nautilus/desktop/network-icon-visible false
-# xvfb-run dconf write /org/gnome/nautilus/desktop/trash-icon-visible true
-# xvfb-run dconf write /org/gnome/nautilus/desktop/volumes-visible false
+# xvfb-run -a dconf write /org/gnome/desktop/background/show-desktop-icons true
+# xvfb-run -a dconf write /org/gnome/nautilus/desktop/home-icon-visible true
+# xvfb-run -a dconf write /org/gnome/nautilus/desktop/network-icon-visible false
+# xvfb-run -a dconf write /org/gnome/nautilus/desktop/trash-icon-visible true
+# xvfb-run -a dconf write /org/gnome/nautilus/desktop/volumes-visible false
 
 ### Screen Blanking
-xvfb-run dconf write /org/gnome/settings-daemon/plugins/power/sleep-display-ac 'uint32 0'
-xvfb-run dconf write /org/gnome/settings-daemon/plugins/power/sleep-display-battery 'uint32 0'
-xvfb-run dconf write /org/gnome/desktop/session/idle-delay 'uint32 0'
+xvfb-run -a dconf write /org/gnome/settings-daemon/plugins/power/sleep-display-ac 'uint32 0'
+xvfb-run -a dconf write /org/gnome/settings-daemon/plugins/power/sleep-display-battery 'uint32 0'
+xvfb-run -a dconf write /org/gnome/desktop/session/idle-delay 'uint32 0'
 
 ### GNOME Updates
-xvfb-run dconf write /org/gnome/software/allow-updates false
-xvfb-run dconf write /org/gnome/software/download-updates false
+xvfb-run -a dconf write /org/gnome/software/allow-updates false
+xvfb-run -a dconf write /org/gnome/software/download-updates false
 
 ### CPU Freq
 sudo apt-get -y install cpufrequtils
@@ -91,4 +91,4 @@ sudo systemctl disable ondemand
 echo "GOVERNOR=\"performance\"" | sudo tee -a /etc/default/cpufrequtils
 
 ### Favorites
-xvfb-run dconf write /org/gnome/shell/favorite-apps "['terminator.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
+xvfb-run -a dconf write /org/gnome/shell/favorite-apps "['terminator.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
