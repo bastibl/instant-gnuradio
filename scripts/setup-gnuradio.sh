@@ -45,6 +45,7 @@ pybombs/lib/uhd/utils/uhd_images_downloader.py
 
 ### GNU RADIO
 sudo apt-get -y install libssl1.0-dev
+pybombs -v install gmp
 pybombs -v install gnuradio
 /home/gnuradio/pybombs/libexec/gnuradio/grc_setup_freedesktop install
 rm -rf ~/.gnome/apps/gnuradio-grc.desktop
@@ -80,14 +81,11 @@ pybombs -v install gr-foo
 pybombs -v install gr-ieee-80211
 pybombs -v install gr-ieee-802154
 pybombs -v install gr-rds
-pybombs -v install gr-keyfob
 pybombs -v install inspectrum
 xdg-icon-resource install --context apps --novendor --size 96 Pictures/inspectrum-icon.png
 
 ### CLEAN UP OUR STUFF
 rm -r Downloads/*
-#find ./pybombs -type d -name '.git' | xargs rm -rf
-find ./pybombs -type d -name 'build' | xargs rm -rf
 
 ### FAVORIT APPLICATIONS
 xvfb-run dconf write /org/gnome/shell/favorite-apps "['gnuradio-grc.desktop', 'gqrx.desktop', 'fosphor.desktop', 'inspectrum.desktop', 'terminator.desktop', 'gnuradio-web.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
