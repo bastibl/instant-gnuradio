@@ -8,7 +8,7 @@
         "iso_checksum_type": "sha256",
         "output_directory": "vms/base",
         "vm_name": "instant-gnuradio-base",
-        "disk_size": "15800",
+        "disk_size": "40000",
         "headless": "false",
         "http_directory": ".",
         "guest_additions_mode": "disable",
@@ -46,7 +46,7 @@
         "vboxmanage": [
             ["modifyvm", "{{.Name}}", "--memory", "4096"],
             ["modifyvm", "{{.Name}}", "--vram", "128"],
-            ["modifyvm", "{{.Name}}", "--cpus", "2"],
+            ["modifyvm", "{{.Name}}", "--cpus", "4"],
             ["modifyvm", "{{.Name}}", "--natpf1", "guestssh,tcp,127.0.0.1,2222,,22"],
             ["modifyvm", "{{.Name}}", "--accelerate3d", "on"],
             ["modifyvm", "{{.Name}}", "--usb", "on"],
