@@ -88,7 +88,7 @@ xdg-icon-resource install --context apps --novendor --size 96 Pictures/inspectru
 ### CLEAN UP OUR STUFF
 rm -r Downloads/*
 
-### FAVORIT APPLICATIONS
+### FAVORITE APPLICATIONS
 xvfb-run dconf write /org/gnome/shell/favorite-apps "['gnuradio-grc.desktop', 'gqrx.desktop', 'fosphor.desktop', 'inspectrum.desktop', 'terminator.desktop', 'gnuradio-web.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
 
 ### The German Code
