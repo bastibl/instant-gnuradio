@@ -28,6 +28,7 @@ sudo apt-get -y install exfat-utils exfat-fuse
 echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections
 sudo apt-get -y install wireshark
 sudo usermod -aG wireshark gnuradio
+sudo usermod -aG plugdev gnuradio
 
 ### ZSH
 sudo apt-get -y install zsh

@@ -36,6 +36,11 @@ sudo apt-get -y install pkg-config libfftw3-dev
 pybombs -v install hackrf
 sudo cp pybombs/src/hackrf/host/libhackrf/53-hackrf.rules /etc/udev/rules.d/
 
+### BLADERF
+pybombs -v install bladeRF
+sed 's/@BLADERF_GROUP@/plugdev/g' pybombs/src/bladeRF/host/misc/udev/88-nuand.rules.in > pybombs/src/bladeRF/host/misc/udev/88-nuand.rules
+sudo cp pybombs/src/bladeRF/host/misc/udev/88-nuand.rules /etc/udev/rules.d/
+
 ### UHD
 pybombs -v install uhd
 sudo cp pybombs/src/uhd/host/utils/uhd-usrp.rules /etc/udev/rules.d/
