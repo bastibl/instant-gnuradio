@@ -47,7 +47,6 @@ sudo cp pybombs/src/uhd/host/utils/uhd-usrp.rules /etc/udev/rules.d/
 pybombs/lib/uhd/utils/uhd_images_downloader.py
 
 ### GNU RADIO
-pybombs config --package gnuradio gitbranch maint
 pybombs -v install gnuradio
 /home/gnuradio/pybombs/libexec/gnuradio/grc_setup_freedesktop install
 rm -rf ~/.gnome/apps/gnuradio-grc.desktop
