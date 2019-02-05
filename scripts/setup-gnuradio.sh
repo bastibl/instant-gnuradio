@@ -8,13 +8,10 @@ export PATH="$HOME/.local/bin:${PATH}"
 echo "gnuradio - rtprio 99" | sudo tee -a /etc/security/limits.conf
 sudo mv 90-usrp.conf /etc/sysctl.d/
 
+sudo apt -y install ipython python-matplotlib python-ipython python-scipy python-numpy python-pip python-qwt5-qt4 python-wxgtk3.0 multimon sox
+
 ### PYBOMBS
-sudo apt -y install python-ipython python-scipy python-numpy python-qwt5-qt4 python-wxgtk3.0 multimon sox
-
-sudo apt-get -y install python-pip
-
-# broken pybombs
-pip install --user git+git://github.com/gnuradio/pybombs.git
+pip install pybombs
 
 pybombs -v recipes add gr-recipes git+https://github.com/gnuradio/gr-recipes.git
 pybombs -v recipes add gr-etcetera git+https://github.com/gnuradio/gr-etcetera.git
@@ -27,24 +24,47 @@ echo 'PATH="$HOME/.local/bin:${PATH}"' >> .bashrc
 echo "source /home/gnuradio/pybombs/setup_env.sh" >> .zshrc
 echo "source /home/gnuradio/pybombs/setup_env.sh" >> .bashrc
 
+### LIBIIO
+pybombs config --package libiio gitrev master
+echo -e "      vars:\n        config_opt: ' -DWITH_IIOD:BOOL=OFF -DINSTALL_UDEV_RULE:BOOL=OFF '" >> /home/gnuradio/.pybombs/config.yml
+pybombs -v install libiio
+sudo mv 53-adi-plutosdr-usb.rules /etc/udev/rules.d/
+
+### SOAPY
+pybombs -v install soapysdr
+cd /home/gnuradio/src
+git clone https://github.com/pothosware/SoapyPlutoSDR
+cd SoapyPlutoSDR
+mkdir build
+cd build
+cmake .. -DCMAKE_INSTALL_PREFIX=/home/gnuradio/pybombs
+make
+make install
+
 ### RTL-SDR
+cd
 pybombs -v install rtl-sdr
 sudo cp pybombs/src/rtl-sdr/rtl-sdr.rules /etc/udev/rules.d/
+pybombs -v install soapyrtlsdr
 
 ### HACKRF
 sudo apt-get -y install pkg-config libfftw3-dev
 pybombs -v install hackrf
 sudo cp pybombs/src/hackrf/host/libhackrf/53-hackrf.rules /etc/udev/rules.d/
+pybombs -v install soapyhackrf
 
 ### BLADERF
 pybombs -v install bladeRF
-sed 's/@BLADERF_GROUP@/plugdev/g' pybombs/src/bladeRF/host/misc/udev/88-nuand.rules.in > pybombs/src/bladeRF/host/misc/udev/88-nuand.rules
-sudo cp pybombs/src/bladeRF/host/misc/udev/88-nuand.rules /etc/udev/rules.d/
+sed 's/@BLADERF_GROUP@/plugdev/g' pybombs/src/bladeRF/host/misc/udev/88-nuand-bladerf1.rules.in   | sudo tee /etc/udev/rules.d/88-nuand-bladerf1.rules
+sed 's/@BLADERF_GROUP@/plugdev/g' pybombs/src/bladeRF/host/misc/udev/88-nuand-bladerf2.rules.in   | sudo tee /etc/udev/rules.d/88-nuand-bladerf2.rules
+sed 's/@BLADERF_GROUP@/plugdev/g' pybombs/src/bladeRF/host/misc/udev/88-nuand-bootloader.rules.in | sudo tee /etc/udev/rules.d/88-nuand-bootloader.rules
+pybombs -v install soapybladerf
 
 ### UHD
 pybombs -v install uhd
 sudo cp pybombs/src/uhd/host/utils/uhd-usrp.rules /etc/udev/rules.d/
 pybombs/lib/uhd/utils/uhd_images_downloader.py
+pybombs -v install soapyuhd
 
 ### GNU RADIO
 pybombs -v install gnuradio
@@ -52,6 +72,9 @@ pybombs -v install gnuradio
 rm -rf ~/.gnome/apps/gnuradio-grc.desktop
 rm -rf ~/.local/share/applications/gnuradio-grc.desktop
 mv gnuradio-grc.desktop .local/share/applications/gnuradio-grc.desktop
+
+### GR IIO
+pybombs -v install gr-iio
 
 ### GR OSMOSDR
 pybombs -v install gr-osmosdr
