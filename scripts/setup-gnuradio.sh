@@ -41,6 +41,19 @@ cmake .. -DCMAKE_INSTALL_PREFIX=/home/gnuradio/pybombs
 make
 make install
 
+### LimeSDR
+cd
+pybombs -v install limesuite
+sudo cp /home/gnuradio/pybombs/src/limesuite/udev-rules/64-limesuite.rules /etc/udev/rules.d/
+
+### XTRX SDR
+cd /home/gnuradio/src
+git clone https://github.com/xtrx-sdr/images.git
+cd images/binaries/Ubuntu_16.04_amd64
+sudo dpkg -i *.deb
+cd ../helpers/udev
+sudo cp *.rules /etc/udev/rules.d/
+
 ### RTL-SDR
 cd
 pybombs -v install rtl-sdr
@@ -108,7 +121,10 @@ pybombs -v install inspectrum
 xdg-icon-resource install --context apps --novendor --size 96 Pictures/inspectrum-icon.png
 
 ### CLEAN UP OUR STUFF
+cd
 rm -r Downloads/*
+find ./pybombs -type d -name '.git' | xargs rm -rf
+find ./pybombs -type d -name 'build' | xargs rm -rf
 
 ### FAVORITE APPLICATIONS
 xvfb-run dconf write /org/gnome/shell/favorite-apps "['gnuradio-grc.desktop', 'gqrx.desktop', 'fosphor.desktop', 'inspectrum.desktop', 'terminator.desktop', 'gnuradio-web.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
