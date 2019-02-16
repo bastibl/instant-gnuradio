@@ -30,6 +30,20 @@ echo -e "      vars:\n        config_opt: ' -DWITH_IIOD:BOOL=OFF -DINSTALL_UDEV_
 pybombs -v install libiio
 sudo mv 53-adi-plutosdr-usb.rules /etc/udev/rules.d/
 
+### LIBAD9361
+pybombs -v install libad9361
+
+### IIO OSCILLOSCOPE
+sudo apt-get -y install libglib2.0-dev libgtk2.0-dev libgtkdatabox-dev libmatio-dev libfftw3-dev libxml2 libxml2-dev bison flex libavahi-common-dev libavahi-client-dev libcurl4-openssl-dev libjansson-dev cmake libaio-dev
+cd /home/gnuradio/src
+git clone https://github.com/bastibl/iio-oscilloscope
+cd iio-oscilloscope
+mkdir build
+cd build
+cmake .. -DCMAKE_INSTALL_PREFIX=/home/gnuradio/pybombs
+make
+make install
+
 ### SOAPY
 pybombs -v install soapysdr
 cd /home/gnuradio/src
