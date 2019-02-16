@@ -50,7 +50,7 @@ sudo cp /home/gnuradio/pybombs/src/limesuite/udev-rules/64-limesuite.rules /etc/
 cd /home/gnuradio/src
 git clone https://github.com/xtrx-sdr/images.git
 cd images/binaries/Ubuntu_16.04_amd64
-sudo dpkg -i *.deb
+sudo dpkg -i *.deb || sudo apt-get -y install -f
 cd ../helpers/udev
 sudo cp *.rules /etc/udev/rules.d/
 
