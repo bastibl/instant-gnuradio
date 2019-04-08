@@ -51,6 +51,12 @@ Host vm
 
 With this config, you can login with `ssh vm` and your password.
 
+## VMWare
+
+VirtualBox and VMWare use different network interfaces, which results in different names for the Ethernet controller. If the network is not automatically configured use `ip link show` to figure out the device name of the interface and adapt the `ethernets` section of `/etc/netplan/01-netcfg.yaml` accordingly. 
+
+
+
 
 ## Customization
 
