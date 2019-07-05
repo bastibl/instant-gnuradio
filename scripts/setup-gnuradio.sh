@@ -7,6 +7,7 @@ export PATH="$HOME/.local/bin:${PATH}"
 
 echo "gnuradio - rtprio 99" | sudo tee -a /etc/security/limits.conf
 sudo mv 90-usrp.conf /etc/sysctl.d/
+sudo apt update
 
 ### PYBOMBS
 sudo apt -y install python-ipython python-scipy python-numpy python-qwt5-qt4 python-wxgtk3.0 multimon sox
@@ -82,7 +83,26 @@ pybombs -v install gr-ieee-80211
 pybombs -v install gr-ieee-802154
 pybombs -v install gr-rds
 pybombs -v install inspectrum
+pybombs -v install gr-adsb
+pybombs -v install gr-air-modes
+pybombs -v install gr-ais
+pybombs -v install gr-bluetooth
+pybombs -v install gr-nmea
 xdg-icon-resource install --context apps --novendor --size 96 Pictures/inspectrum-icon.png
+
+### Install srsLTE
+#sudo apt-get -y install cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev
+#git clone https://github.com/srsLTE/srsLTE.git
+#cd srsLTE
+#mkdir build
+#cd build
+#cmake ../
+#make
+#sudo make install
+#chmod +x srslte_install_configs.sh
+#sudo ./srslte_install_configs.sh
+#cd ..
+#rm -r srsLTE
 
 ### CLEAN UP OUR STUFF
 rm -r Downloads/*
