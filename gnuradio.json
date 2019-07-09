@@ -57,6 +57,11 @@
     },
     {
       "type": "file",
+      "source": "assets/53-adi-plutosdr-usb.rules",
+      "destination": "53-adi-plutosdr-usb.rules"
+    },
+    {
+      "type": "file",
       "source": "assets/gqrx-icon.png",
       "destination": "Pictures/gqrx-icon.png"
     },

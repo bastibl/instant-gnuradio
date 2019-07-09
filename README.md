@@ -1,8 +1,9 @@
 # Instant GNU Radio
 
-A customizable, programmatically generated VM and live environment for GNU Radio.
+A customizable, programmatically generated VM and live environment for GNU Radio. [Download](https://www.fleark.de/instant-gnuradio.ova) the VM and get started!
 
 ![Screenshot](screen2.png)
+
 
 ## Main Features
 
@@ -12,7 +13,7 @@ A customizable, programmatically generated VM and live environment for GNU Radio
 - Easy to brand for your own courses/workshops. Just replace the wallpaper in the `assets` folder, for example.
 - Software: GNU Radio, GQRX, gr-ieee-***, ...
 - Fosphor support!
-- Hardware: HackRF, RTL-SDR, UHD; properly setup with udev rules and downloaded images.
+- Hardware: HackRF, RTL-SDR, BladeRF, Pluto, UHD; properly setup with udev rules and downloaded images.
 - Productivity: Git, Meld, VIM, Spacemacs, ...
 - Favorite applications (in the sidebar) are set to GNU Radio Companion, GQRX, GNU Radio Wiki, ...
 - Sane VM defaults (USB, 3D acceleration, audio, shared clipboard, etc.).
@@ -49,6 +50,12 @@ Host vm
 ```
 
 With this config, you can login with `ssh vm` and your password.
+
+## VMWare
+
+VirtualBox and VMWare use different network interfaces, which results in different names for the Ethernet controller. If the network is not automatically configured use `ip link show` to figure out the device name of the interface and adapt the `ethernets` section of `/etc/netplan/01-netcfg.yaml` accordingly. 
+
+
 
 
 ## Customization
