@@ -1,0 +1,10 @@
+*.rules text eol=lf
+*.conf text eol=lf
+*.desktop text eol=lf
+*.cfg text eol=lf
+spacemacs text eol=lf
+terminator text eol=lf
+vimrc text eol=lf
+zenburn.vim text eol=lf
+zshenv text eol=lf
+zshrc text eol=lf
