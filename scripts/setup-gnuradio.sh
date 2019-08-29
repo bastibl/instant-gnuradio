@@ -155,6 +155,15 @@ xdg-icon-resource install --context apps --novendor --size 96 Pictures/inspectru
 #cd ..
 #rm -r srsLTE
 
+### URH
+cd ~/src
+sudo apt-get -y install python3-numpy python3-psutil python3-zmq python3-pyqt5 g++ libpython3-dev python3-pip cython3
+git clone https://github.com/jopohl/urh/
+# needs to be after 'source /home/gnuradio/pybombs/setup_env.sh' for the LIBRARY path to point to .so's
+cd urh && sudo python3 setup.py install
+cd
+xdg-icon-resource install --context apps --novendor --size 96 Pictures/urhpng.png
+
 ### CLEAN UP OUR STUFF
 cd
 rm -r Downloads/*
@@ -162,7 +171,7 @@ find ./pybombs -type d -name '.git' | xargs rm -rf
 find ./pybombs -type d -name 'build' | xargs rm -rf
 
 ### FAVORITE APPLICATIONS
-xvfb-run dconf write /org/gnome/shell/favorite-apps "['gnuradio-grc.desktop', 'gqrx.desktop', 'fosphor.desktop', 'inspectrum.desktop', 'terminator.desktop', 'gnuradio-web.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
+xvfb-run dconf write /org/gnome/shell/favorite-apps "['gnuradio-grc.desktop', 'gqrx.desktop', 'fosphor.desktop', 'inspectrum.desktop', 'urh.desktop', 'terminator.desktop', 'gnuradio-web.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
 
 ### The German Code
 # xvfb-run dconf write /org/gnome/desktop/input-sources/sources "[('xkb', 'de')]"

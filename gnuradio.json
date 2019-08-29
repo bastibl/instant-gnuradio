@@ -57,6 +57,11 @@
     },
     {
       "type": "file",
+      "source": "assets/urh.desktop",
+      "destination": ".local/share/applications/urh.desktop"
+    },
+    {
+      "type": "file",
       "source": "assets/53-adi-plutosdr-usb.rules",
       "destination": "53-adi-plutosdr-usb.rules"
     },
@@ -74,6 +79,11 @@
       "type": "file",
       "source": "assets/fosphor-icon.png",
       "destination": "Pictures/fosphor-icon.png"
+    },
+    {
+      "type": "file",
+      "source": "assets/urhpng.png",
+      "destination": "Pictures/urhpng.png"
     },
     {
       "type": "file",
