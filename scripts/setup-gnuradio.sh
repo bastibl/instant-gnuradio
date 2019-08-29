@@ -60,6 +60,7 @@ make install
 cd
 pybombs -v install limesuite
 sudo cp /home/gnuradio/pybombs/src/limesuite/udev-rules/64-limesuite.rules /etc/udev/rules.d/
+pybombs -v install gr-limesdr
 
 ### XTRX SDR
 cd /home/gnuradio/src
