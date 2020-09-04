@@ -33,12 +33,26 @@ sudo apt-get -y install gqrx-sdr inspectrum
 sudo snap install urh
 
 sudo usermod -aG usrp gnuradio
+sudo apt-get -y install clinfo mesa-utils
+sudo usermod -aG video gnuradio
+sudo usermod -aG dialout gnuradio
+sudo usermod -aG lpadmin gnuradio
+
+sudo apt-get -y install intel-opencl-icd lsb-core
+
+sudo /usr/lib/uhd/utils/uhd_images_downloader.py
+
+cd ~/Downloads
+tar xvf l_opencl_p_18.1.0.015.tgz
+sudo l_opencl_p_18.1.0.015/install.sh -s opencl-silent.cfg
 
 cd
 xdg-icon-resource install --context apps --novendor --size 96 Pictures/gqrx-icon.png
 xdg-icon-resource install --context apps --novendor --size 96 Pictures/inspectrum-icon.png
 xdg-icon-resource install --context apps --novendor --size 96 Pictures/fosphor-icon.png
 xdg-icon-resource install --context apps --novendor --size 96 Pictures/urhpng.png
+
+rm -rf Downloads/*
 
 ### FAVORITE APPLICATIONS
 xvfb-run dconf write /org/gnome/shell/favorite-apps "['gnuradio-grc.desktop', 'gqrx.desktop', 'fosphor.desktop', 'inspectrum.desktop', 'urh.desktop', 'terminator.desktop', 'code_code.desktop', 'gnuradio-web.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"

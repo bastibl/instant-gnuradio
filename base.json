@@ -28,7 +28,7 @@
             ["modifyvm", "{{.Name}}", "--vram", "128"],
             ["modifyvm", "{{.Name}}", "--cpus", "4"],
             ["modifyvm", "{{.Name}}", "--natpf1", "guestssh,tcp,127.0.0.1,2222,,22"],
-            ["modifyvm", "{{.Name}}", "--accelerate3d", "on"],
+            ["modifyvm", "{{.Name}}", "--accelerate3d", "off"],
             ["modifyvm", "{{.Name}}", "--usb", "on"],
             ["modifyvm", "{{.Name}}", "--usbxhci", "on"],
             ["modifyvm", "{{.Name}}", "--clipboard", "bidirectional"],

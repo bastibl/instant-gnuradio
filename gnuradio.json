@@ -27,6 +27,16 @@
     },
     {
       "type": "file",
+      "source": "assets/l_opencl_p_18.1.0.015.tgz",
+      "destination": "Downloads/l_opencl_p_18.1.0.015.tgz"
+    },
+    {
+      "type": "file",
+      "source": "assets/opencl-silent.cfg",
+      "destination": "Downloads/opencl-silent.cfg"
+    },
+    {
+      "type": "file",
       "source": "assets/gqrx.desktop",
       "destination": ".local/share/applications/gqrx.desktop"
     },
