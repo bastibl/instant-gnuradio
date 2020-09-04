@@ -14,7 +14,7 @@ sudo systemctl start NetworkManager
 sudo apt-get install -y gnome-shell ubuntu-gnome-desktop
 
 ### NICER GDM SCREEN
-sudo update-alternatives --set gdm3.css /usr/share/gnome-shell/theme/gnome-shell.css
+sudo update-alternatives --set gdm3-theme.gresource /usr/share/gnome-shell/gnome-shell-theme.gresource
 
 ### NO WAYLAND
 sudo sed -i 's/#WaylandEnable=false/WaylandEnable=false/g' /etc/gdm3/custom.conf

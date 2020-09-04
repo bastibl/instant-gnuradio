@@ -27,16 +27,6 @@
     },
     {
       "type": "file",
-      "source": "assets/opencl_runtime_16.1.2_x64_rh_6.4.0.37.tgz",
-      "destination": "Downloads/opencl_runtime_16.1.2_x64_rh_6.4.0.37.tgz"
-    },
-    {
-      "type": "file",
-      "source": "assets/opencl-silent.cfg",
-      "destination": "Downloads/opencl-silent.cfg"
-    },
-    {
-      "type": "file",
       "source": "assets/gqrx.desktop",
       "destination": ".local/share/applications/gqrx.desktop"
     },
@@ -52,18 +42,8 @@
     },
     {
       "type": "file",
-      "source": "assets/gnuradio-grc.desktop",
-      "destination": "gnuradio-grc.desktop"
-    },
-    {
-      "type": "file",
       "source": "assets/urh.desktop",
       "destination": ".local/share/applications/urh.desktop"
-    },
-    {
-      "type": "file",
-      "source": "assets/53-adi-plutosdr-usb.rules",
-      "destination": "53-adi-plutosdr-usb.rules"
     },
     {
       "type": "file",
@@ -84,11 +64,6 @@
       "type": "file",
       "source": "assets/urhpng.png",
       "destination": "Pictures/urhpng.png"
-    },
-    {
-      "type": "file",
-      "source": "assets/90-usrp.conf",
-      "destination": "90-usrp.conf"
     },
     {
       "type": "shell",
