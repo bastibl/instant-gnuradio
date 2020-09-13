@@ -1,0 +1,37 @@
+{
+  "builders": [
+    {
+      "type": "virtualbox-ovf",
+      "headless": true,
+      "source_path": "vms/gnuradio/instant-gnuradio.ova",
+      "ssh_username": "gnuradio",
+      "ssh_password": "gnuradio",
+      "shutdown_command": "sudo systemctl poweroff",
+      "guest_additions_mode": "disable",
+      "vm_name": "instant-satellites",
+      "export_opts": [
+        "--manifest",
+        "--vsys", "0",
+        "--description", "Instant GNU Radio Satellites",
+        "--version", "instant-1"
+      ],
+      "format": "ova",
+      "output_directory": "vms/estevez"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/setup-satellites.sh"
+      ]
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/cleanup.sh"
+      ],
+      "execute_command": "sudo -E bash '{{.Path}}'"
+    }
+  ]
+}
