@@ -6,6 +6,9 @@ export LANG=en_US.UTF-8
 export PATH="$HOME/.local/bin:${PATH}"
 
 cd
+sudo mv 90-usrp.conf /etc/sysctl.d/
+
+cd
 echo 'export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib' >> .profile
 echo 'export PYTHONPATH=${PYTHONPATH}:/usr/local/lib/python3/dist-packages' >> .profile
 echo 'export PYTHONPATH=${PYTHONPATH}:/usr/local/lib/python3/site-packages' >> .profile

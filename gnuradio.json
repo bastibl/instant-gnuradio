@@ -27,6 +27,11 @@
     },
     {
       "type": "file",
+      "source": "assets/90-usrp.conf",
+      "destination": "90-usrp.conf"
+    },
+    {
+      "type": "file",
       "source": "assets/l_opencl_p_18.1.0.015.tgz",
       "destination": "Downloads/l_opencl_p_18.1.0.015.tgz"
     },
