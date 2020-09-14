@@ -37,6 +37,11 @@
     },
     {
       "type": "file",
+      "source": "assets/config.conf",
+      "destination": ".gnuradio/config.conf"
+    },
+    {
+      "type": "file",
       "source": "assets/gqrx.desktop",
       "destination": ".local/share/applications/gqrx.desktop"
     },
