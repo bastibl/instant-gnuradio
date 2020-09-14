@@ -41,6 +41,10 @@
       "destination": "Downloads/opencl-silent.cfg"
     },
     {
+      "type": "shell",
+      "inline": ["mkdir ~/.gnuradio"]
+    },
+    {
       "type": "file",
       "source": "assets/config.conf",
       "destination": ".gnuradio/config.conf"
