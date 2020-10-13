@@ -30,7 +30,7 @@ echo "gnuradio - rtprio 99" | sudo tee -a /etc/security/limits.conf
 sudo apt-get update
 sudo apt-get -y upgrade
 
-sudo apt-get -y install jupyter jupyter-qtconsole jupyter-notebook python3-matplotlib python3-ipython python3-scipy python3-numpy python3-pip multimon sox liborc-dev swig3.0
+sudo apt-get -y install jupyter jupyter-qtconsole jupyter-notebook python3-matplotlib python3-ipython python3-scipy python3-numpy python3-pip multimon-ng sox liborc-dev swig3.0
 
 sudo add-apt-repository -y ppa:gnuradio/gnuradio-releases
 sudo add-apt-repository -y ppa:mormj/gnuradio-oot3
