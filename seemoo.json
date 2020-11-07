@@ -1,0 +1,71 @@
+{
+  "builders": [
+    {
+      "type": "virtualbox-ovf",
+      "headless": true,
+      "source_path": "vms/gnuradio/instant-gnuradio.ova",
+      "ssh_username": "gnuradio",
+      "ssh_password": "gnuradio",
+      "shutdown_command": "sudo systemctl poweroff",
+      "guest_additions_mode": "disable",
+      "vm_name": "CriCom",
+      "export_opts": [
+        "--manifest",
+        "--vsys", "0",
+        "--description", "Instant GNU Radio (CriCom)",
+        "--version", "cricom-2020"
+      ],
+      "format": "ova",
+      "output_directory": "vms/seemoo"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": ["mkdir ~/cricom"]
+    },
+    {
+      "type": "file",
+      "source": "/home/basti/scratch/cricom-keyfob_433mhz-8mhz.cfile",
+      "destination": "cricom/keyfob_433mhz-8mhz.cfile"
+    },
+    {
+      "type": "file",
+      "source": "/home/basti/scratch/cricom-powerswitch_433mhz-8mhz.cfile",
+      "destination": "cricom/powerswitch_433mhz-8mhz.cfile"
+    },
+    {
+      "type": "file",
+      "source": "/home/basti/scratch/clipping.grc",
+      "destination": "cricom/clipping.grc"
+    },
+    {
+      "type": "file",
+      "source": "/home/basti/scratch/quantization.grc",
+      "destination": "cricom/quantization.grc"
+    },
+    {
+      "type": "file",
+      "source": "/home/basti/scratch/powerswitch.grc",
+      "destination": "cricom/powerswitch.grc"
+    },
+    {
+      "type": "file",
+      "source": "/home/basti/scratch/gr-powerswitch",
+      "destination": "cricom/gr-powerswitch"
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/setup-seemoo.sh"
+      ]
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/cleanup.sh"
+      ],
+      "execute_command": "sudo -E bash '{{.Path}}'"
+    }
+  ]
+}
