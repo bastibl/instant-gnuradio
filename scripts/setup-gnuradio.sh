@@ -32,11 +32,11 @@ sudo apt-get -y upgrade
 
 sudo apt-get -y install jupyter jupyter-qtconsole jupyter-notebook python3-matplotlib python3-ipython python3-scipy python3-numpy python3-pip multimon-ng sox liborc-dev swig3.0
 
-sudo add-apt-repository -y ppa:gnuradio/gnuradio-releases
-sudo add-apt-repository -y ppa:mormj/gnuradio-oot3
-sudo apt-get update
+# sudo add-apt-repository -y ppa:gnuradio/gnuradio-releases
+# sudo add-apt-repository -y ppa:mormj/gnuradio-oot3
+# sudo apt-get update
 
-sudo apt-get -y install gr-fcdproplus gr-fosphor gr-iqbal gr-limesdr gr-osmosdr
+sudo apt-get -y install gnuradio-dev gr-fcdproplus gr-fosphor gr-iqbal gr-limesdr gr-osmosdr gr-iio
 
 sudo apt-get -y install gqrx-sdr inspectrum
 

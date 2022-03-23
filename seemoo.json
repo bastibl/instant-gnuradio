@@ -13,7 +13,7 @@
         "--manifest",
         "--vsys", "0",
         "--description", "Instant GNU Radio (CriCom)",
-        "--version", "cricom-2020"
+        "--version", "cricom-2021"
       ],
       "format": "ova",
       "output_directory": "vms/seemoo"
