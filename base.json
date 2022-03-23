@@ -1,101 +1,157 @@
 {
   "builders": [
     {
-        "type": "virtualbox-iso",
-        "guest_os_type": "Ubuntu_64",
-        "iso_urls": "https://releases.ubuntu.com/20.04/ubuntu-20.04.1-live-server-amd64.iso",
-        "iso_checksum_type": "sha256",
-        "iso_checksum": "443511f6bf12402c12503733059269a2e10dec602916c0a75263e5d990f6bb93",
-        "output_directory": "vms/base",
-        "vm_name": "instant-gnuradio-base",
-        "disk_size": "40000",
-        "headless": "false",
-        "http_directory": ".",
-        "guest_additions_mode": "upload",
-        "boot_wait": "5s",
-        "boot_command": [
-          "<enter><enter><f6><esc><wait> ",
-          "autoinstall ds=nocloud-net;seedfrom=http://{{ .HTTPIP }}:{{ .HTTPPort }}/",
-          "<enter><wait>"
+      "boot_command": [
+        "<enter><enter><f6><esc><wait> ",
+        "autoinstall ds=nocloud-net;seedfrom=http://{{ .HTTPIP }}:{{ .HTTPPort }}/",
+        "<enter><wait>"
+      ],
+      "boot_wait": "5s",
+      "disk_size": "40000",
+      "format": "ova",
+      "guest_additions_mode": "upload",
+      "guest_os_type": "Ubuntu_64",
+      "headless": "false",
+      "http_directory": ".",
+      "iso_checksum": "sha256:443511f6bf12402c12503733059269a2e10dec602916c0a75263e5d990f6bb93",
+      "iso_urls": "https://releases.ubuntu.com/20.04/ubuntu-20.04.1-live-server-amd64.iso",
+      "output_directory": "vms/base",
+      "shutdown_command": "sudo systemctl poweroff",
+      "ssh_password": "gnuradio",
+      "ssh_timeout": "60m",
+      "ssh_username": "gnuradio",
+      "type": "virtualbox-iso",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "4096"
         ],
-        "ssh_username": "gnuradio",
-        "ssh_password": "gnuradio",
-        "ssh_wait_timeout": "60m",
-        "shutdown_command": "sudo systemctl poweroff",
-        "format": "ova",
-        "vboxmanage": [
-            ["modifyvm", "{{.Name}}", "--memory", "4096"],
-            ["modifyvm", "{{.Name}}", "--vram", "128"],
-            ["modifyvm", "{{.Name}}", "--cpus", "4"],
-            ["modifyvm", "{{.Name}}", "--natpf1", "guestssh,tcp,127.0.0.1,2222,,22"],
-            ["modifyvm", "{{.Name}}", "--accelerate3d", "off"],
-            ["modifyvm", "{{.Name}}", "--usb", "on"],
-            ["modifyvm", "{{.Name}}", "--usbxhci", "on"],
-            ["modifyvm", "{{.Name}}", "--clipboard", "bidirectional"],
-            ["modifyvm", "{{.Name}}", "--audioout", "on"],
-            ["modifyvm", "{{.Name}}", "--audioin", "on"],
-            ["modifyvm", "{{.Name}}", "--graphicscontroller", "vmsvga"]
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--vram",
+          "128"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "4"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--natpf1",
+          "guestssh,tcp,127.0.0.1,2222,,22"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--accelerate3d",
+          "off"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--usb",
+          "on"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--usbxhci",
+          "on"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--clipboard",
+          "bidirectional"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--audioout",
+          "on"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--audioin",
+          "on"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--graphicscontroller",
+          "vmsvga"
         ]
-    }],
-    "provisioners": [
-        {
-            "type": "shell",
-            "scripts": [
-                "scripts/init-base.sh"
-            ]
-        },
-        {
-            "type": "file",
-            "source": "assets/wallpaper.png",
-            "destination": "Pictures/wallpaper.png"
-        },
-        {
-            "type": "file",
-            "source": "assets/zshrc",
-            "destination": ".zshrc"
-        },
-        {
-            "type": "file",
-            "source": "assets/zshenv",
-            "destination": ".zshenv"
-        },
-        {
-            "type": "file",
-            "source": "assets/terminator",
-            "destination": ".config/terminator/config"
-        },
-        {
-            "type": "file",
-            "source": "assets/UbuntuMono-Nerd-Font.ttf",
-            "destination": ".fonts/UbuntuMono-Nerd-Font.ttf"
-        },
-        {
-            "type": "file",
-            "source": "assets/vimrc",
-            "destination": ".vimrc"
-        },
-        {
-            "type": "file",
-            "source": "assets/zenburn.vim",
-            "destination": ".vim/colors/zenburn.vim"
-        },
-        {
-            "type": "file",
-            "source": "assets/gitconfig",
-            "destination": ".gitconfig"
-        },
-        {
-            "type": "shell",
-            "scripts": [
-                "scripts/setup-base.sh"
-            ]
-        },
-        {
-            "type": "shell",
-            "scripts": [
-                "scripts/cleanup.sh"
-            ],
-            "execute_command": "sudo -E bash '{{.Path}}'"
-        }
-    ]
+      ],
+      "vm_name": "instant-gnuradio-base"
+    }
+  ],
+  "provisioners": [
+    {
+      "scripts": [
+        "scripts/init-base.sh"
+      ],
+      "type": "shell"
+    },
+    {
+      "destination": "Pictures/wallpaper.png",
+      "source": "assets/wallpaper.png",
+      "type": "file"
+    },
+    {
+      "destination": ".zshrc",
+      "source": "assets/zshrc",
+      "type": "file"
+    },
+    {
+      "destination": ".zshenv",
+      "source": "assets/zshenv",
+      "type": "file"
+    },
+    {
+      "destination": ".config/terminator/config",
+      "source": "assets/terminator",
+      "type": "file"
+    },
+    {
+      "destination": ".fonts/UbuntuMono-Nerd-Font.ttf",
+      "source": "assets/UbuntuMono-Nerd-Font.ttf",
+      "type": "file"
+    },
+    {
+      "destination": ".vimrc",
+      "source": "assets/vimrc",
+      "type": "file"
+    },
+    {
+      "destination": ".vim/colors/zenburn.vim",
+      "source": "assets/zenburn.vim",
+      "type": "file"
+    },
+    {
+      "destination": ".gitconfig",
+      "source": "assets/gitconfig",
+      "type": "file"
+    },
+    {
+      "scripts": [
+        "scripts/setup-base.sh"
+      ],
+      "type": "shell"
+    },
+    {
+      "execute_command": "sudo -E bash '{{.Path}}'",
+      "scripts": [
+        "scripts/cleanup.sh"
+      ],
+      "type": "shell"
+    }
+  ]
 }
+
