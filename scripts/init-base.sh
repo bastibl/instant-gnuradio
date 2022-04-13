@@ -14,6 +14,11 @@ done
 echo "==> Updating list of repositories"
 sudo apt-get -y update
 
+echo "==> adding apt-smart from pip and updating apt mirror"
+sudo apt-get -y install python3-pip
+sudo pip3 install apt-smart
+sudo apt-smart --auto-change-mirror
+
 echo "==> Upgrading Packages"
 sudo apt-get upgrade --fix-missing -y
 
