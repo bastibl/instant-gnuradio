@@ -42,6 +42,7 @@ sudo apt-get -y install gqrx-sdr inspectrum
 
 sudo snap install urh
 
+sudo groupadd usrp
 sudo usermod -aG usrp gnuradio
 sudo apt-get -y install clinfo mesa-utils
 sudo usermod -aG video gnuradio
