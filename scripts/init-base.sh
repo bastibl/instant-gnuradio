@@ -2,11 +2,20 @@
 
 set -exu
 
+while (sudo fuser /var/lib/apt/lists/lock) >/dev/null 2>&1 ; do
+	echo "Another package manager is currently using apt/lists. Waiting..."
+	sleep 1s
+done
+while (sudo fuser /var/lib/dpkg/lock) >/dev/null 2>&1 ; do
+	echo "Another package manager is currently using dpkg. Waiting..."
+	sleep 1s
+done
+
 echo "==> Updating list of repositories"
 sudo apt-get -y update
 
 echo "==> Upgrading Packages"
-sudo apt-get -y upgrade
+sudo apt-get upgrade --fix-missing -y
 
 echo "==> Installing ubuntu-gnome-desktop"
 sudo apt-get install -y network-manager
