@@ -51,8 +51,8 @@ sudo usermod -aG lpadmin gnuradio
 
 sudo apt-get -y install intel-opencl-icd lsb-core
 
-# FIXME: where did this script go?
-#sudo /usr/lib/uhd/utils/uhd_images_downloader.py
+sudo apt-get -y install uhd-host
+sudo /usr/bin/uhd_images_downloader
 
 cd ~/Downloads
 tar xvf l_opencl_p_18.1.0.015.tgz
