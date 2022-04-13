@@ -8,7 +8,7 @@
         "output_directory": "vms/base",
         "vm_name": "instant-gnuradio-base",
         "disk_size": "40000",
-        "headless": "false",
+        "headless": "true",
         "http_directory": ".",
         "guest_additions_mode": "upload",
         "boot_wait": "5s",
