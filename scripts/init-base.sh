@@ -11,6 +11,9 @@ while (sudo fuser /var/lib/dpkg/lock) >/dev/null 2>&1 ; do
 	sleep 1s
 done
 
+# stop unattended upgrades which can unpredictably ruin the automated builds
+sudo apt -y remove unattended-upgrades
+
 echo "==> Updating list of repositories"
 sudo apt-get -y update
 
