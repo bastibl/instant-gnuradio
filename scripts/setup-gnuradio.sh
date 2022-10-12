@@ -12,8 +12,8 @@ cd
 echo 'export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib' >> .profile
 echo 'export PYTHONPATH=${PYTHONPATH}:/usr/local/lib/python3/dist-packages' >> .profile
 echo 'export PYTHONPATH=${PYTHONPATH}:/usr/local/lib/python3/site-packages' >> .profile
-echo 'export PYTHONPATH=${PYTHONPATH}:/usr/local/lib/python3.8/dist-packages' >> .profile
-echo 'export PYTHONPATH=${PYTHONPATH}:/usr/local/lib/python3.8/site-packages' >> .profile
+echo 'export PYTHONPATH=${PYTHONPATH}:/usr/local/lib/python3.10/dist-packages' >> .profile
+echo 'export PYTHONPATH=${PYTHONPATH}:/usr/local/lib/python3.10/site-packages' >> .profile
 
 cd /tmp
 sudo mkdir /tmp/isomount
@@ -30,15 +30,7 @@ echo "gnuradio - rtprio 99" | sudo tee -a /etc/security/limits.conf
 sudo apt-get update
 sudo apt-get -y upgrade
 
-sudo apt-get -y install jupyter jupyter-qtconsole jupyter-notebook python3-matplotlib python3-ipython python3-scipy python3-numpy python3-pip multimon-ng sox liborc-dev swig3.0
-
-sudo add-apt-repository -y ppa:gnuradio/gnuradio-releases
-sudo add-apt-repository -y ppa:mormj/gnuradio-oot3
-sudo apt-get update
-
-sudo apt-get -y install gr-fcdproplus gr-fosphor gr-iqbal gr-limesdr gr-osmosdr
-
-sudo apt-get -y install gqrx-sdr inspectrum
+sudo apt-get -y install jupyter jupyter-qtconsole jupyter-notebook python3-matplotlib python3-ipython python3-scipy python3-numpy python3-pip multimon-ng sox liborc-dev gr-fosphor gr-osmosdr gqrx-sdr inspectrum hackrf soapysdr-tools soapysdr0.8-module-all gnuradio gr-rds gr-satellites rtl-sdr bladerf
 
 sudo snap install urh
 

@@ -74,8 +74,8 @@ xvfb-run -a dconf write /org/gnome/desktop/session/idle-delay 'uint32 0'
 
 ### CPU Freq
 sudo apt-get -y install cpufrequtils
-sudo systemctl stop ondemand
-sudo systemctl disable ondemand
+sudo systemctl stop cpufrequtils
+sudo systemctl disable cpufrequtils
 echo "GOVERNOR=\"performance\"" | sudo tee -a /etc/default/cpufrequtils
 
 ### Favorites
