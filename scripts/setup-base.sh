@@ -17,12 +17,12 @@ sleep 5s
 sudo apt-get -y remove apport gnome-initial-setup
 sudo apt-get update
 
-sudo apt-get -y install clang cmake cmake-qt-gui curl dconf-editor git git-core git-gui gitk gparted htop libboost-all-dev meld open-vm-tools-desktop pavucontrol screen silversearcher-ag terminator tig tmux tree virtualbox-guest-dkms virtualbox-guest-utils wget xterm xvfb
+sudo apt-get -y install clang cmake cmake-qt-gui curl dconf-editor git git-core git-gui gitk gparted htop libboost-all-dev meld open-vm-tools-desktop pavucontrol screen silversearcher-ag terminator tig tmux tree virtualbox-guest-utils wget xterm xvfb
 
 ### Drivers
 sudo apt-get -y remove virtualbox-guest-x11
 sudo apt-get -y install bcmwl-kernel-source
-sudo apt-get -y install exfat-utils exfat-fuse
+sudo apt-get -y install exfatprogs exfat-fuse
 
 ### WIRESHARK
 echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections
@@ -64,13 +64,13 @@ xvfb-run -a dconf write /org/gnome/nautilus/icon-view/default-zoom-level \"stand
 # xvfb-run -a dconf write /org/gnome/nautilus/desktop/volumes-visible false
 
 ### Screen Blanking
-xvfb-run -a dconf write /org/gnome/settings-daemon/plugins/power/sleep-display-ac 'uint32 0'
-xvfb-run -a dconf write /org/gnome/settings-daemon/plugins/power/sleep-display-battery 'uint32 0'
+xvfb-run -a dconf write /org/gnome/settings-daemon/plugins/power/sleep-inactive-ac-timeout 'int32 0'
+xvfb-run -a dconf write /org/gnome/settings-daemon/plugins/power/sleep-inactive-battery-timeout 'int32 0'
 xvfb-run -a dconf write /org/gnome/desktop/session/idle-delay 'uint32 0'
 
 ### GNOME Updates
-xvfb-run -a dconf write /org/gnome/software/allow-updates false
-xvfb-run -a dconf write /org/gnome/software/download-updates false
+# xvfb-run -a dconf write /org/gnome/software/allow-updates false
+# xvfb-run -a dconf write /org/gnome/software/download-updates false
 
 ### CPU Freq
 sudo apt-get -y install cpufrequtils

@@ -3,8 +3,8 @@
     {
         "type": "virtualbox-iso",
         "guest_os_type": "Ubuntu_64",
-        "iso_urls": "http://old-releases.ubuntu.com/releases/20.04.1/ubuntu-20.04.1-live-server-amd64.iso",
-        "iso_checksum": "sha256:443511f6bf12402c12503733059269a2e10dec602916c0a75263e5d990f6bb93",
+        "iso_urls": "https://releases.ubuntu.com/22.04/ubuntu-22.04.1-live-server-amd64.iso",
+        "iso_checksum": "sha256:10f19c5b2b8d6db711582e0e27f5116296c34fe4b313ba45f9b201a5007056cb",
         "output_directory": "vms/base",
         "vm_name": "instant-gnuradio-base",
         "disk_size": "40000",
@@ -13,9 +13,13 @@
         "guest_additions_mode": "upload",
         "boot_wait": "5s",
         "boot_command": [
-          "<enter><enter><f6><esc><wait> ",
-          "autoinstall ds=nocloud-net;seedfrom=http://{{ .HTTPIP }}:{{ .HTTPPort }}/",
-          "<enter><wait>"
+            "c<wait>",
+            "linux /casper/vmlinuz --- autoinstall ds=\"nocloud-net;seedfrom=http://{{.HTTPIP}}:{{.HTTPPort}}/\"",
+            "<enter><wait>",
+            "initrd /casper/initrd",
+            "<enter><wait>",
+            "boot",
+            "<enter>"
         ],
         "ssh_username": "gnuradio",
         "ssh_password": "gnuradio",
