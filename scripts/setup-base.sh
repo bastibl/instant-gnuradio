@@ -46,7 +46,7 @@ sudo snap install --classic code
 sudo apt-get -y install vim vim-gtk3
 mkdir -p .vim/bundle
 mkdir -p .swp
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/mauricioms/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +VundleInstall +qall
 
 ### WALLPAPER
