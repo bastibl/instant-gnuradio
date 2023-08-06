@@ -37,7 +37,8 @@
             ["modifyvm", "{{.Name}}", "--clipboard", "bidirectional"],
             ["modifyvm", "{{.Name}}", "--audioout", "on"],
             ["modifyvm", "{{.Name}}", "--audioin", "on"],
-            ["modifyvm", "{{.Name}}", "--graphicscontroller", "vmsvga"]
+            ["modifyvm", "{{.Name}}", "--graphicscontroller", "vmsvga"],
+            ["modifyvm", "{{.Name}}", "--nat-localhostreachable1", "on"]
         ]
     }],
     "provisioners": [
