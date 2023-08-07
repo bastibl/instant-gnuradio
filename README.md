@@ -4,6 +4,9 @@ A customizable, programmatically generated VM and live environment for GNU Radio
 
 ![Screenshot](screen2.png)
 
+## Requirements
+
+- Requires **VirtualBox 7.X** to build.
 
 ## Main Features
 
