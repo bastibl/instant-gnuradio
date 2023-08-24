@@ -2,6 +2,8 @@
 
 set -exu
 
+echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections
+
 while (sudo fuser /var/lib/apt/lists/lock) >/dev/null 2>&1 ; do
 	echo "Another package manager is currently using apt/lists. Waiting..."
 	sleep 1s
@@ -80,3 +82,5 @@ echo "GOVERNOR=\"performance\"" | sudo tee -a /etc/default/cpufrequtils
 
 ### Favorites
 xvfb-run -a dconf write /org/gnome/shell/favorite-apps "['terminator.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop']"
+
+echo 'debconf debconf/frontend select Dialog' | sudo debconf-set-selections

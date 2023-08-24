@@ -2,6 +2,8 @@
 
 set -exu
 
+echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections
+
 while (sudo fuser /var/lib/apt/lists/lock) >/dev/null 2>&1 ; do
 	echo "Another package manager is currently using apt/lists. Waiting..."
 	sleep 1s
@@ -12,7 +14,7 @@ while (sudo fuser /var/lib/dpkg/lock) >/dev/null 2>&1 ; do
 done
 
 # stop unattended upgrades which can unpredictably ruin the automated builds
-sudo apt -y remove unattended-upgrades
+sudo apt-get -y remove unattended-upgrades
 
 echo "==> Updating list of repositories"
 sudo apt-get -y update

@@ -5,6 +5,8 @@ set -eux
 export LANG=en_US.UTF-8
 export PATH="$HOME/.local/bin:${PATH}"
 
+echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections
+
 cd
 sudo mv 90-usrp.conf /etc/sysctl.d/
 
@@ -30,7 +32,7 @@ echo "gnuradio - rtprio 99" | sudo tee -a /etc/security/limits.conf
 sudo apt-get update
 sudo apt-get -y upgrade
 
-sudo apt-get -y install jupyter jupyter-qtconsole jupyter-notebook python3-matplotlib python3-ipython python3-scipy python3-numpy python3-pip multimon-ng sox liborc-dev gr-fosphor gr-osmosdr gqrx-sdr inspectrum hackrf soapysdr-tools soapysdr0.8-module-all gnuradio gr-rds gr-satellites rtl-sdr bladerf
+sudo apt-get -y install jupyter jupyter-qtconsole jupyter-notebook python3-matplotlib python3-ipython python3-scipy python3-numpy python3-pip multimon-ng sox liborc-dev gr-fosphor gr-osmosdr gqrx-sdr inspectrum hackrf soapysdr-tools soapysdr0.8-module-{bladerf,hackrf,osmosdr,rtlsdr,uhd} gnuradio gr-rds gr-satellites rtl-sdr bladerf
 
 sudo snap install urh
 
@@ -63,3 +65,31 @@ xvfb-run dconf write /org/gnome/shell/favorite-apps "['gnuradio-grc.desktop', 'g
 
 ### The German Code
 # xvfb-run dconf write /org/gnome/desktop/input-sources/sources "[('xkb', 'de')]"
+
+curl https://sh.rustup.rs -sSf | sh -s -- -y
+source ~/.cargo/env
+rustup install nightly
+rustup default nightly
+rustup component add rust-src
+rustup component add rust-analyzer
+rustup target add wasm32-unknown-unknown
+
+sudo apt-get -y install libfontconfig-dev libssl-dev
+cargo install alacritty
+cargo install bat
+cargo install fd-find
+cargo install cargo-asm
+cargo install cargo-check
+cargo install cargo-expand
+cargo install cargo-update
+cargo install cargo-watch
+cargo install exa
+cargo install procs
+cargo install trunk
+cargo install wasm-pack
+
+mkdir -p ~/src
+git clone --recursive https://github.com/FutureSDR/FutureSDR ~/src/futuresdr
+git clone --recursive https://github.com/FutureSDR/seify ~/src/seify
+
+echo 'debconf debconf/frontend select Dialog' | sudo debconf-set-selections
