@@ -90,8 +90,6 @@ cargo install procs
 cargo install trunk
 cargo install wasm-pack
 
-mkdir -p ~/src
-git clone --recursive https://github.com/bastibl/FutureSDR ~/src/futuresdr -b netsys
-git clone --recursive https://github.com/FutureSDR/seify ~/src/seify
+git clone --recursive https://github.com/bastibl/FutureSDR ~/Desktop/futuresdr -b netsys
 
 echo 'debconf debconf/frontend select Dialog' | sudo debconf-set-selections

@@ -2,6 +2,6 @@
 Type=Application
 Name=FutureSDR Website
 Exec=firefox --class futuresdr-web -- 'https://www.futuresdr.org/'
-Icon=futuresdr
+Icon=futuresdr-icon
 Categories=Science;
 StartupWMClass=futuresdr-web
