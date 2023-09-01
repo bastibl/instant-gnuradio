@@ -33,13 +33,13 @@ sudo rsync -av --one-file-system --exclude=/proc/* --exclude=/dev/* \
 	--exclude=/etc/fstab --exclude=/etc/mtab --exclude=/etc/hosts \
 	--exclude=/etc/timezone --exclude=/etc/shadow* --exclude=/etc/gshadow* \
 	--exclude=/etc/X11/xorg.conf* --exclude=${CD} --exclude=${WORK} \
-	--exclude=/home/gnuradio/instant-gnuradio.iso \
-	--exclude=/home/gnuradio/chroot-iso.sh \
-	--exclude=/home/gnuradio/gen-iso.sh \
+	--exclude=/home/sdr/instant-sdr.iso \
+	--exclude=/home/sdr/chroot-iso.sh \
+	--exclude=/home/sdr/gen-iso.sh \
 	/ ${WORK}/rootfs
 
 sudo rm -rf ${WORK}/rootfs/etc/skel
-sudo mv ${WORK}/rootfs/home/gnuradio ${WORK}/rootfs/etc/skel
+sudo mv ${WORK}/rootfs/home/sdr ${WORK}/rootfs/etc/skel
 
 sudo mount  --bind /dev/ ${WORK}/rootfs/dev
 sudo mount -t proc proc ${WORK}/rootfs/proc
@@ -76,11 +76,11 @@ cat << EOF | sudo tee ${CD}/boot/grub/grub.cfg
 set default="0"
 set timeout=10
 
-menuentry "Instant GNU Radio" {
+menuentry "Instant SDR" {
 linux /casper/vmlinuz boot=casper liveimg noprompt noeject --
 initrd /casper/initrd.img
 }
 
 EOF
 
-sudo grub-mkrescue -o ~/instant-gnuradio.iso ${CD}
+sudo grub-mkrescue -o ~/instant-sdr.iso ${CD}

@@ -1,0 +1,116 @@
+{
+  "builders": [
+    {
+      "type": "virtualbox-ovf",
+      "headless": true,
+      "source_path": "vms/base/instant-sdr-base.ova",
+      "ssh_username": "sdr",
+      "ssh_password": "sdr",
+      "shutdown_command": "sudo systemctl poweroff",
+      "guest_additions_mode": "disable",
+      "vm_name": "instant-sdr",
+      "export_opts": [
+        "--manifest",
+        "--vsys", "0",
+        "--description", "Instant SDR",
+        "--version", "instant-1"
+      ],
+      "format": "ova",
+      "output_directory": "vms/sdr"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "assets/gnuradio-web.desktop",
+      "destination": ".local/share/applications/gnuradio-web.desktop"
+    },
+    {
+      "type": "file",
+      "source": "assets/futuresdr-web.desktop",
+      "destination": ".local/share/applications/futuresdr-web.desktop"
+    },
+    {
+      "type": "file",
+      "source": "assets/90-usrp.conf",
+      "destination": "90-usrp.conf"
+    },
+    {
+      "type": "file",
+      "source": "assets/l_opencl_p_18.1.0.015.tgz",
+      "destination": "Downloads/l_opencl_p_18.1.0.015.tgz"
+    },
+    {
+      "type": "file",
+      "source": "assets/opencl-silent.cfg",
+      "destination": "Downloads/opencl-silent.cfg"
+    },
+    {
+      "type": "shell",
+      "inline": ["mkdir ~/.gnuradio"]
+    },
+    {
+      "type": "file",
+      "source": "assets/config.conf",
+      "destination": ".gnuradio/config.conf"
+    },
+    {
+      "type": "file",
+      "source": "assets/gqrx.desktop",
+      "destination": ".local/share/applications/gqrx.desktop"
+    },
+    {
+      "type": "file",
+      "source": "assets/fosphor.desktop",
+      "destination": ".local/share/applications/fosphor.desktop"
+    },
+    {
+      "type": "file",
+      "source": "assets/inspectrum.desktop",
+      "destination": ".local/share/applications/inspectrum.desktop"
+    },
+    {
+      "type": "file",
+      "source": "assets/urh.desktop",
+      "destination": ".local/share/applications/urh.desktop"
+    },
+    {
+      "type": "file",
+      "source": "assets/gqrx-icon.png",
+      "destination": "Pictures/gqrx-icon.png"
+    },
+    {
+      "type": "file",
+      "source": "assets/inspectrum-icon.png",
+      "destination": "Pictures/inspectrum-icon.png"
+    },
+    {
+      "type": "file",
+      "source": "assets/fosphor-icon.png",
+      "destination": "Pictures/fosphor-icon.png"
+    },
+    {
+      "type": "file",
+      "source": "assets/futuresdr-icon.png",
+      "destination": "Pictures/futuresdr-icon.png"
+    },
+    {
+      "type": "file",
+      "source": "assets/urhpng.png",
+      "destination": "Pictures/urhpng.png"
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/setup-sdr.sh"
+      ]
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/cleanup.sh"
+      ],
+      "execute_command": "sudo -E bash '{{.Path}}'"
+    }
+  ]
+}

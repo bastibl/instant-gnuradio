@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=FutureSDR Website
+Exec=firefox --class futuresdr-web -- 'https://www.futuresdr.org/'
+Icon=futuresdr
+Categories=Science;
+StartupWMClass=futuresdr-web

@@ -48,7 +48,7 @@ sudo localectl set-locale LANG="en_US.UTF-8"
 echo "UseDNS no" | sudo tee -a /etc/ssh/sshd_config
 
 echo "==> Custom Message of the Day"
-echo -e "\nWelcome to Instant GNU Radio\n" | sudo tee -a /etc/motd
+echo -e "\nWelcome to Instant SDR\n" | sudo tee -a /etc/motd
 
 echo "==> Stop Creating User Dirs"
 sudo sed -i s/enabled=True/enabled=False/g /etc/xdg/user-dirs.conf

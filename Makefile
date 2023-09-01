@@ -1,16 +1,16 @@
-.PHONY: clean all base gnuradio
+.PHONY: clean all base sdr
 
-all: vms/gnuradio/instant-gnuradio.ova
+all: vms/sdr/instant-sdr.ova
 
-gnuradio: vms/gnuradio/instant-gnuradio.ova
+sdr: vms/sdr/instant-sdr.ova
 
-base: vms/base/instant-gnuradio-base.ova
+base: vms/base/instant-sdr-base.ova
 
-vms/base/instant-gnuradio-base.ova: base.json scripts/setup-base.sh scripts/init-base.sh
+vms/base/instant-sdr-base.ova: base.json scripts/setup-base.sh scripts/init-base.sh
 	packer build --force base.json
 
-vms/gnuradio/instant-gnuradio.ova: gnuradio.json assets/l_opencl_p_18.1.0.015.tgz vms/base/instant-gnuradio-base.ova scripts/setup-gnuradio.sh
-	packer build --force gnuradio.json
+vms/sdr/instant-sdr.ova: sdr.json assets/l_opencl_p_18.1.0.015.tgz vms/base/instant-sdr-base.ova scripts/setup-sdr.sh
+	packer build --force sdr.json
 
  assets/l_opencl_p_18.1.0.015.tgz:
 	cd assets && wget https://www.fleark.de/l_opencl_p_18.1.0.015.tgz

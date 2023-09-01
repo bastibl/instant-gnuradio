@@ -6,12 +6,13 @@ autoinstall:
     - systemctl stop ssh
   identity:
     hostname: flinn
-    realname: "GNU Radio (pw is gnuradio)"
-    username: gnuradio
-    password: "$6$c/SgY6Md1m75S32u$eOW1h3l9lYNTM97o0Usa/C/U2C8I6FpXcCJuZLkKEzjEf4.v9VXFW05A0BLR2eONdJ7lP2BLGdC5g.es8dvW/1"
+    realname: "SDR (password is sdr)"
+    username: sdr
+    # echo sdr | mkpasswd -m sha-512 -s
+    password: "$6$YMIsbr5Xk7sXRjbs$ewJYmUGgAsX.g8eADkiryK55D7m67BACzibgjyXRskDze4a7s/jdRiRJxbbFYMyP.rZxLvqDYPDjQulK3z1LN1"
   ssh:
     install-server: yes
   user-data:
     disable_root: false
   late-commands:
-    - echo 'gnuradio ALL=(ALL) NOPASSWD:ALL' > /target/etc/sudoers.d/gnuradio
+    - echo 'sdr ALL=(ALL) NOPASSWD:ALL' > /target/etc/sudoers.d/sdr

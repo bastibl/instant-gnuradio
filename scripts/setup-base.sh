@@ -29,14 +29,14 @@ sudo apt-get -y install exfatprogs exfat-fuse
 ### WIRESHARK
 echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections
 sudo apt-get -y install wireshark
-sudo usermod -aG wireshark gnuradio
-sudo usermod -aG plugdev gnuradio
+sudo usermod -aG wireshark sdr
+sudo usermod -aG plugdev sdr
 
 ### ZSH
 sudo apt-get -y install zsh
 mkdir -p src
 git clone https://github.com/robbyrussell/oh-my-zsh.git src/oh-my-zsh
-sudo chsh -s /bin/zsh gnuradio
+sudo chsh -s /bin/zsh sdr
 
 ### FONTS
 fc-cache -fr
@@ -52,7 +52,7 @@ git clone https://github.com/mauricioms/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +VundleInstall +qall
 
 ### WALLPAPER
-xvfb-run -a dconf write /org/gnome/desktop/background/picture-uri \"file:///home/gnuradio/Pictures/wallpaper.png\"
+xvfb-run -a dconf write /org/gnome/desktop/background/picture-uri \"file:///home/sdr/Pictures/wallpaper.png\"
 
 ### NAUTILUS
 xvfb-run -a dconf write /org/gnome/nautilus/preferences/default-folder-viewer \"list-view\"
