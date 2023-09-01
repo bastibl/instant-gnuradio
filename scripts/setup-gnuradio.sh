@@ -32,7 +32,7 @@ echo "gnuradio - rtprio 99" | sudo tee -a /etc/security/limits.conf
 sudo apt-get update
 sudo apt-get -y upgrade
 
-sudo apt-get -y install jupyter jupyter-qtconsole jupyter-notebook python3-matplotlib python3-ipython python3-scipy python3-numpy python3-pip multimon-ng sox liborc-dev gr-fosphor gr-osmosdr gqrx-sdr inspectrum hackrf soapysdr-tools soapysdr0.8-module-{bladerf,hackrf,osmosdr,rtlsdr,uhd} gnuradio gr-rds gr-satellites rtl-sdr bladerf
+sudo apt-get -y install jupyter jupyter-qtconsole jupyter-notebook python3-matplotlib python3-ipython python3-scipy python3-numpy python3-pip multimon-ng sox liborc-dev gr-fosphor gr-osmosdr gqrx-sdr inspectrum hackrf soapysdr-tools libsoapysdr-dev soapysdr0.8-module-{bladerf,hackrf,osmosdr,rtlsdr,uhd} gnuradio gr-rds gr-satellites rtl-sdr bladerf
 
 sudo snap install urh
 
@@ -89,7 +89,7 @@ cargo install trunk
 cargo install wasm-pack
 
 mkdir -p ~/src
-git clone --recursive https://github.com/FutureSDR/FutureSDR ~/src/futuresdr
+git clone --recursive https://github.com/bastibl/FutureSDR ~/src/futuresdr -b netsys
 git clone --recursive https://github.com/FutureSDR/seify ~/src/seify
 
 echo 'debconf debconf/frontend select Dialog' | sudo debconf-set-selections
