@@ -29,24 +29,24 @@ A customizable, programmatically generated VM and live environment for GNU Radio
 ## Credentials
 
 ``` bash
-user: gnuradio
-password: gnuradio
+user: sdr
+password: sdr
 ```
 
 ### SSH Login
 
 ``` bash
-ssh -p2222 gnuradio@localhost
+ssh -p2222 sdr@localhost
 ```
 
-Password is `gnuradio`.
+Password is `sdr`.
 
 You might want to add something like this to your SSH config (`~/.ssh/config`):
 
 ``` bash
 Host vm
 	Hostname localhost
-	User gnuradio
+	User sdr
 	Port 2222
 	UserKnownHostsFile /dev/null
 	StrictHostKeyChecking no
@@ -102,11 +102,11 @@ make
 
 to build the virtual machine. The output will be in the `vms/` directory.
 
-Note that there is a `base` file and a `gnuradio` file. If you make changes to your `gnuradio.json` you can save time by only rebuilding the latter by running `make gnuradio`.
+Note that there is a `base` file and a `sdr` file. If you make changes to your `sdr.json` you can save time by only rebuilding the latter by running `make sdr`.
 
 ### Customizing the Virtual Machines
 
-VM configurations are defined in the packer configuration files `base.json` and `gnuradio.json`.
+VM configurations are defined in the packer configuration files `base.json` and `sdr.json`.
 
 More information on how to customize the virtual machines can be found on the [packer website](https://www.packer.io/).
 ## Live Image
