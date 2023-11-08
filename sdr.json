@@ -100,16 +100,6 @@
       "destination": "Pictures/urhpng.png"
     },
     {
-      "type": "file",
-      "source": "assets/carkey.cf32",
-      "destination": "Desktop/carkey.cf32"
-    },
-    {
-      "type": "file",
-      "source": "assets/zigbee.cf32",
-      "destination": "Desktop/zigbee.cf32"
-    },
-    {
       "type": "shell",
       "scripts": [
         "scripts/setup-sdr.sh"
