@@ -3,17 +3,17 @@
     {
       "type": "virtualbox-ovf",
       "headless": true,
-      "source_path": "vms/gnuradio/instant-gnuradio.ova",
-      "ssh_username": "gnuradio",
-      "ssh_password": "gnuradio",
+      "source_path": "vms/gnuradio/instant-sdr.ova",
+      "ssh_username": "sdr",
+      "ssh_password": "sdr",
       "shutdown_command": "sudo systemctl poweroff",
       "guest_additions_mode": "disable",
       "vm_name": "CriCom",
       "export_opts": [
         "--manifest",
         "--vsys", "0",
-        "--description", "Instant GNU Radio (CriCom)",
-        "--version", "cricom-2021"
+        "--description", "Instant SDR (CriCom)",
+        "--version", "cricom-2023"
       ],
       "format": "ova",
       "output_directory": "vms/seemoo"
@@ -53,6 +53,11 @@
       "type": "file",
       "source": "/home/basti/scratch/gr-powerswitch",
       "destination": "cricom/gr-powerswitch"
+    },
+    {
+      "type": "file",
+      "source": "/home/basti/scratch/gr-keyfob",
+      "destination": "cricom/gr-keyfob"
     },
     {
       "type": "shell",

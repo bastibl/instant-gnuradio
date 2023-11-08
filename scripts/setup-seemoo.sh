@@ -14,3 +14,11 @@ make
 sudo make install
 sudo ldconfig
 
+cd ~/cricom/gr-keyfob
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+sudo ldconfig
+
