@@ -3,7 +3,7 @@
     {
       "type": "virtualbox-ovf",
       "headless": true,
-      "source_path": "vms/gnuradio/instant-sdr.ova",
+      "source_path": "vms/sdr/instant-sdr.ova",
       "ssh_username": "sdr",
       "ssh_password": "sdr",
       "shutdown_command": "sudo systemctl poweroff",
@@ -21,43 +21,29 @@
   ],
   "provisioners": [
     {
-      "type": "shell",
-      "inline": ["mkdir ~/cricom"]
-    },
-    {
       "type": "file",
       "source": "/home/basti/scratch/cricom-keyfob_433mhz-8mhz.cfile",
-      "destination": "cricom/keyfob_433mhz-8mhz.cfile"
+      "destination": "Desktop/keyfob_433mhz-8mhz.cfile"
     },
     {
       "type": "file",
       "source": "/home/basti/scratch/cricom-powerswitch_433mhz-8mhz.cfile",
-      "destination": "cricom/powerswitch_433mhz-8mhz.cfile"
+      "destination": "Desktop/powerswitch_433mhz-8mhz.cfile"
     },
     {
       "type": "file",
-      "source": "/home/basti/scratch/clipping.grc",
-      "destination": "cricom/clipping.grc"
-    },
-    {
-      "type": "file",
-      "source": "/home/basti/scratch/quantization.grc",
-      "destination": "cricom/quantization.grc"
-    },
-    {
-      "type": "file",
-      "source": "/home/basti/scratch/powerswitch.grc",
-      "destination": "cricom/powerswitch.grc"
+      "source": "/home/basti/scratch/flowgraphs",
+      "destination": "Desktop/flowgraphs"
     },
     {
       "type": "file",
       "source": "/home/basti/scratch/gr-powerswitch",
-      "destination": "cricom/gr-powerswitch"
+      "destination": "Desktop/gr-powerswitch"
     },
     {
       "type": "file",
       "source": "/home/basti/scratch/gr-keyfob",
-      "destination": "cricom/gr-keyfob"
+      "destination": "Desktop/gr-keyfob"
     },
     {
       "type": "shell",
