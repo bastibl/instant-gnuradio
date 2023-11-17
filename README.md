@@ -1,6 +1,6 @@
 # Instant GNU Radio
 
-A customizable, programmatically generated VM and live environment for GNU Radio. [Download](https://www.fleark.de/instant-gnuradio.ova) the VM and get started!
+A customizable, programmatically generated VM and live environment for GNU Radio. [Download](https://nextcloud.seemoo.tu-darmstadt.de/s/7e6XrJ2gStgqKgt) the VM and get started!
 
 ![Screenshot](screen2.png)
 
